@@ -4,7 +4,7 @@ class ModulesController < ApplicationController
   end
 
   def car
-    @cars = car.all
+
   end
 
   def groceries
