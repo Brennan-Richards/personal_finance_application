@@ -1,0 +1,70 @@
+<div class="variables">
+  <%= gas = Carexp.last.gas %>
+  <%= insurance = Carexp.last.insurance %>
+  <%= maintenance = Carexp.last.maintenance %>
+  <%= taxes = Carexp.last.taxes %>
+</div>
+
+
+<h1>Overview of your car expenses.</h1>
+
+<table>
+<tr>
+  <th></th>
+  <th>Daily</th>
+  <th>Weekly</th>
+  <th>Biweekly</th>
+  <th>Monthly</th>
+  <th>Yearly</th>
+</tr>
+
+<tr id="gas">
+  <td>Gas</td>
+  <td><%= gas / 365 %></td>
+  <td><%= gas / 52 %></td>
+  <td><%= gas / 26 %></td>
+  <td><%= gas / 12 %></td>
+  <td><%= gas %></td>
+</tr>
+
+<tr id="maintenance">
+  <td>Maintenance</td>
+  <td><%= maintenance / 365 %></td>
+  <td><%= maintenance / 52 %></td>
+  <td><%= maintenance / 26 %></td>
+  <td><%= maintenance / 12 %></td>
+  <td><%= maintenance%></td>
+</tr>
+
+<tr id="insurance">
+  <td>Insurance</td>
+  <td><%= insurance / 365 %></td>
+  <td><%= insurance / 52 %></td>
+  <td><%= insurance / 26 %></td>
+  <td><%= insurance / 12 %></td>
+  <td><%= insurance%></td>
+</tr>
+
+<tr id="taxes">
+  <td>Taxes</td>
+  <td> <%= taxes / 365 %></td>
+  <td> <%= taxes / 52 %></td>
+  <td> <%= taxes / 26 %></td>
+  <td> <%= taxes / 12 %> </td>
+  <td> <%= taxes %></td>
+</tr>
+
+<tr id="car_totals">
+  <td>Total Car Expenses</td>
+  <td> <%= (gas + maintenance + insurance + taxes) / 365%> </td>
+  <td> <%= (gas + maintenance + insurance + taxes) / 52%> </td>
+  <td> <%= (gas + maintenance + insurance + taxes) / 26 %> </td>
+  <td> <%= (gas + maintenance + insurance + taxes) / 12 %> </td>
+  <td> <%= (gas + maintenance + insurance + taxes) %></td>
+</tr>
+
+</table>
+
+<p>
+<%= link_to "Add Expenses", new_carexp_path %>
+</p>

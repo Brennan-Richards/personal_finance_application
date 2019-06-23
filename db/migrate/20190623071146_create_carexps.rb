@@ -1,8 +1,8 @@
-class CreateCars < ActiveRecord::Migration[5.2]
+class CreateCarexps < ActiveRecord::Migration[5.2]
   def change
-    create_table :cars do |t|
+    create_table :carexps do |t|
       t.integer :gas
-      t.integer :maintenace
+      t.integer :maintenance
       t.integer :insurance
       t.integer :taxes
 

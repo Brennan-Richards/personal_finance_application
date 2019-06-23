@@ -1,0 +1,22 @@
+<h1>Welcome to the Car Expenses Module. Please input your expenses.</h1>
+
+<%= form_for @carexp do |f| %>
+
+    <div>
+      <%=  f.label :gas %> <br>
+      <%=  f.text_field :gas %> <br>
+
+      <%=  f.label :maintenance %> <br>
+      <%=  f.text_field :maintenance %> <br>
+
+      <%=  f.label :insurance %> <br>
+      <%=  f.text_field :insurance %> <br>
+
+      <%=  f.label :taxes %> <br>
+      <%=  f.text_field :taxes %> <br>
+
+    </div>
+
+  <%= f.submit %>
+
+<% end %>

@@ -1,0 +1,2 @@
+class Carexp < ApplicationRecord
+end
