@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  gas: 1
+  maintenace: 1
+  insurance: 1
+  taxes: 1
+
+two:
+  gas: 1
+  maintenace: 1
+  insurance: 1
+  taxes: 1
