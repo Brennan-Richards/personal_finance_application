@@ -1,0 +1,65 @@
+<div class="variables">
+  <%= state = 0 %>
+  <%= federal = 0 %>
+  <%= socialsecurity = (Tax.last.salary) * 0.062 %>
+  <%= medicare = (Tax.last.salary) * 0.0145 %>
+  <%= disability = (Tax.last.salary) * 0.011 %>
+</div>
+
+<h1>Overview of your tax exenses. </h1>
+
+<table>
+  <tr>
+    <td></td>
+    <td>Daily</td>
+    <td>Weekly</td>
+    <td>Biweekly</td>
+    <td>Monthly</td>
+    <td>Yearly</td>
+  </tr>
+
+  <tr>
+    <td>State Withholding Tax</td>
+    <td><%= state / 365%></td>
+    <td><%= state / 52 %></td>
+    <td><%= state / 26 %></td>
+    <td><%= state / 12 %></td>
+    <td><%= state %></td>
+  </tr>
+
+  <tr>
+    <td>Federal Withholding Tax</td>
+    <td><%= federal / 365%></td>
+    <td><%= federal / 52 %></td>
+    <td><%= federal / 26 %></td>
+    <td><%= federal / 12 %></td>
+    <td><%= federal %></td>
+  </tr>
+
+  <tr>
+    <td>Social Security</td>
+    <td><%= socialsecurity / 365 %></td>
+    <td><%= socialsecurity / 52 %></td>
+    <td><%= socialsecurity / 26 %></td>
+    <td><%= socialsecurity / 12 %></td>
+    <td><%= socialsecurity %></td>
+  </tr>
+
+  <tr>
+    <td>Medicare</td>
+    <td><%= medicare / 365 %></td>
+    <td><%= medicare / 52 %></td>
+    <td><%= medicare / 26 %></td>
+    <td><%= medicare / 12 %></td>
+    <td><%= medicare %></td>
+  </tr>
+
+  <tr>
+    <td>Disability</td>
+    <td><%= disability / 365 %></td>
+    <td><%= disability / 52 %></td>
+    <td><%= disability / 26 %></td>
+    <td><%= disability / 12 %></td>
+    <td><%= disability %></td>
+  </tr>
+</table>

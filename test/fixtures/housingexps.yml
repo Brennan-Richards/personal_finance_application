@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  mortgage: 1
+  utilities: 1
+  propertytax: 1
+
+two:
+  mortgage: 1
+  utilities: 1
+  propertytax: 1

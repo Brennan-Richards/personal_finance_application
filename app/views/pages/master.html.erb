@@ -1,3 +1,17 @@
+<div class="variables">
+  <%= cartotal = ((Carexp.last.gas) +
+  (Carexp.last.maintenance) + (Carexp.last.insurance) +
+  (Carexp.last.taxes)) %>
+  <%= housingtotal = ((Housingexp.last.mortgage) +
+  (Housingexp.last.utilities) + (Housingexp.last.propertytax)) %>
+  <%= groceriestotal = 0 %>
+  <%= taxestotal = 0 %>
+  <%= othertotal = 0 %>
+  <%= sum = cartotal + housingtotal + taxestotal + groceriestotal + othertotal  %>
+  <%= salary = Tax.last.salary %>
+  <%= remaining = salary - sum %>
+</div>
+
 <h1> This is the finances page </h1>
 
 <table>
@@ -12,20 +26,20 @@
 
   <tr id="housing">
     <td>Housing</td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
+    <td><%= housingtotal / 365 %></td>
+    <td><%= housingtotal / 52 %></td>
+    <td><%= housingtotal / 26 %></td>
+    <td><%= housingtotal / 12 %></td>
+    <td><%= housingtotal %></td>
   </tr>
 
   <tr id="car">
     <td>Car</td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
+    <td><%= cartotal / 365 %></td>
+    <td><%= cartotal / 52 %></td>
+    <td><%= cartotal / 26 %></td>
+    <td><%= cartotal / 12 %></td>
+    <td><%= cartotal %></td>
   </tr>
 
   <tr id="groceries">
@@ -57,19 +71,26 @@
 
   <tr id="totals">
     <td>Expense Totals</td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
+    <td><%= sum / 365 %></td>
+    <td><%= sum / 52 %></td>
+    <td><%= sum / 26 %></td>
+    <td><%= sum / 12 %></td>
+    <td><%= sum %></td>
   </tr>
 
   <tr id = "remaining">
     <td>Remaining Income</td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
+    <td><%= remaining / 365 %></td>
+    <td><%= remaining / 52 %></td>
+    <td><%= remaining / 26 %></td>
+    <td><%= remaining / 12 %></td>
+    <td><%= remaining %></td>
   </tr>
 </table>
+
+<p>
+  <%= link_to "Cars Module", carexps_path %><br>
+  <%= link_to "Housing Module", housingexps_path %>
+  <%= link_to "Taxes Module", taxes_path %><br>
+  <%= link_to "Home", root_path %><br>
+</p>

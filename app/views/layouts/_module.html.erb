@@ -1,0 +1,74 @@
+<div class="variables">
+  <%= total = model.last.exp1 %>
+  <%= exp3 = model.last.exp3 %>
+  <%= exp2 = model.last.exp2 %>
+  <%= exp4 = model.last.exp4 %>
+</div>
+
+
+<h1>Overview of your car expenses.</h1>
+
+<table>
+<tr>
+  <th></th>
+  <th>Daily</th>
+  <th>Weekly</th>
+  <th>Biweekly</th>
+  <th>Monthly</th>
+  <th>Yearly</th>
+</tr>
+
+<tr id="exp1">
+  <td><%= exp1.upcase %></td>
+  <td><%= exp1 / 365 %></td>
+  <td><%= exp1 / 52 %></td>
+  <td><%= exp1 / 26 %></td>
+  <td><%= exp1 / 12 %></td>
+  <td><%= exp1 %></td>
+</tr>
+
+<tr id="exp2">
+  <td><%= exp2.upcase %></td>
+  <td><%= exp2 / 365 %></td>
+  <td><%= exp2 / 52 %></td>
+  <td><%= exp2 / 26 %></td>
+  <td><%= exp2 / 12 %></td>
+  <td><%= exp2%></td>
+</tr>
+
+<tr id="exp3">
+  <td><%= exp3.upcase %></td>
+  <td><%= exp3 / 365 %></td>
+  <td><%= exp3 / 52 %></td>
+  <td><%= exp3 / 26 %></td>
+  <td><%= exp3 / 12 %></td>
+  <td><%= exp3%></td>
+</tr>
+
+<tr id="exp4">
+  <td>exp4</td>
+  <td> <%= exp4 / 365 %></td>
+  <td> <%= exp4 / 52 %></td>
+  <td> <%= exp4 / 26 %></td>
+  <td> <%= exp4 / 12 %> </td>
+  <td> <%= exp4 %></td>
+</tr>
+
+<tr id="car_totals">
+  <td>Total Car Expenses</td>
+  <td> <%= (exp1 + exp2 + exp3 + exp4) / 365%> </td>
+  <td> <%= (exp1 + exp2 + exp3 + exp4) / 52%> </td>
+  <td> <%= (exp1 + exp2 + exp3 + exp4) / 26 %> </td>
+  <td> <%= (exp1 + exp2 + exp3 + exp4) / 12 %> </td>
+  <td> <%= (exp1 + exp2 + exp3 + exp4) %></td>
+</tr>
+
+</table>
+
+<p>
+<%= link_to "Add Expenses", new_model_path %>
+</p>
+
+<p>
+<%= link_to "Home", root_path %>
+</p>

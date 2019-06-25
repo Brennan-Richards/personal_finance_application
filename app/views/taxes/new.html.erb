@@ -1,0 +1,24 @@
+<h1>Fill out the form below to generate your tax expenses.</h1>
+
+<%= form_for @tax do |f| %>
+
+<p>
+  <%= f.label :salary %>
+  <%= f.text_field :salary %>
+</p>
+
+<p>
+  <%= f.label :dependents %>
+  <%= f.text_field :dependents %>
+</p>
+
+<p>
+  <%= f.label :selfemployed %>
+  <%= f.text_field :selfemployed %>
+</p>
+
+<%= f.submit %>
+
+<%= link_to "Taxes Overview", taxes_path %>
+
+<% end %>

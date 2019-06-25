@@ -1,0 +1,24 @@
+<h1> Welcome to the Housing Expenses Module! </h1>
+<h2>Input your expenses below:</h2>
+
+<%= form_for @housingexp do |f| %>
+
+  <div>
+    <%= f.label :mortgage %><br>
+    <%= f.text_field :mortgage  %> <br>
+
+    <%= f.label :utilities %><br>
+    <%= f.text_field :utilities  %> <br>
+
+    <%= f.label :propertytax %><br>
+    <%= f.text_field :propertytax  %> <br>
+
+    <%= f.submit %>
+
+  </div>
+
+
+<% end %>
+
+<%= link_to "View All Housing Expenses", housingexps_path %> <br>
+<%= link_to "View Master Expense Sheet", master_path %>

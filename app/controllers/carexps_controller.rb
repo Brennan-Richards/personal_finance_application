@@ -1,16 +1,13 @@
 class CarexpsController < ApplicationController
 
-  @gas = 0
-  @maintenance = 0
-  @insurance = 0
-  @taxes = 0
-
-  def gas_create
-    @gas = Carexp.gas
-  end
-
   def index
     @carexps = Carexp.all
+
+    if Carexp.count == 0
+      redirect_to new_carexp_path
+    else
+      render 'index'
+    end
   end
 
   def new

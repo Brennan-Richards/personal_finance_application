@@ -1,0 +1,2 @@
+class Housingexp < ApplicationRecord
+end

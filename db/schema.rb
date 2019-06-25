@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_23_071146) do
+ActiveRecord::Schema.define(version: 2019_06_25_054218) do
+
+  create_table "car_expenses", force: :cascade do |t|
+    t.integer "gas"
+    t.integer "maintenance"
+    t.integer "insurance"
+    t.integer "taxes"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "carexps", force: :cascade do |t|
     t.integer "gas"
@@ -21,5 +30,29 @@ ActiveRecord::Schema.define(version: 2019_06_23_071146) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "cars", force: :cascade do |t|
+    t.integer "gas"
+    t.integer "maintenace"
+    t.integer "insurance"
+    t.integer "taxes"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "housingexps", force: :cascade do |t|
+    t.integer "mortgage"
+    t.integer "utilities"
+    t.integer "propertytax"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "taxes", force: :cascade do |t|
+    t.float "salary"
+    t.integer "dependents"
+    t.boolean "selfemployed"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
 end
