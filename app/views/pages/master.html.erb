@@ -4,7 +4,7 @@
 
 <h1> This is the Master Overview page: </h1>
 
-<% if Tax.last.salary > 0 %>
+<% if Tax.count != 0 %>
   <h2>Your current salary: <%= Tax.last.salary %> <%= link_to 'change', taxes_path  %> </h2>
 <% end %>
 
@@ -107,7 +107,7 @@
     <% else %>
 
       <td>Taxes</td>
-      <td>Tax information not added. <%= link_to 'Add Expenses', new_taxexp_path %></td>
+      <td>Tax information not added. <%= link_to 'Add Expenses', new_tax_path %></td>
       <td></td>
       <td></td>
       <td></td>
@@ -127,13 +127,15 @@
   </tr>
 
   <tr id = "remaining">
-    <% remaining = Tax.last.salary - totalexpenses %>
-    <td>Remaining Income</td>
-    <td><%= remaining / 365 %></td>
-    <td><%= remaining / 52 %></td>
-    <td><%= remaining / 26 %></td>
-    <td><%= remaining / 12 %></td>
-    <td><%= remaining %></td>
+    <% if Tax.count > 0 %>
+      <% remaining = Tax.last.salary - totalexpenses %>
+      <td>Remaining Income</td>
+      <td><%= remaining / 365 %></td>
+      <td><%= remaining / 52 %></td>
+      <td><%= remaining / 26 %></td>
+      <td><%= remaining / 12 %></td>
+      <td><%= remaining %></td>
+    <% end %>
   </tr>
 </table>
 
