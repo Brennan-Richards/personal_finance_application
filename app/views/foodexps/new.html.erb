@@ -1,0 +1,19 @@
+<h1>Add your food expenses.</h1>
+
+<%= form_for @foodexp do |f| %>
+
+  <div class="newfood">
+
+    <p>
+      <%= f.label :monthly_food_costs %>
+      <%= f.text_field :monthlyfood %>
+    </p>
+
+  </div>
+
+<%= f.submit %>
+
+<% end %>
+
+<%= link_to 'Overview of Food Expenses', foodexps_path %> |
+<%= link_to 'View all expenses', master_path %>

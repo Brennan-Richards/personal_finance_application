@@ -1,0 +1,2 @@
+class Foodexp < ApplicationRecord
+end

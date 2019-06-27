@@ -1,18 +1,10 @@
 <div class="variables">
-  <%= cartotal = ((Carexp.last.gas) +
-  (Carexp.last.maintenance) + (Carexp.last.insurance) +
-  (Carexp.last.taxes)) %>
-  <%= housingtotal = ((Housingexp.last.mortgage) +
-  (Housingexp.last.utilities) + (Housingexp.last.propertytax)) %>
-  <%= groceriestotal = 0 %>
-  <%= taxestotal = 0 %>
-  <%= othertotal = 0 %>
-  <%= sum = cartotal + housingtotal + taxestotal + groceriestotal + othertotal  %>
-  <%= salary = Tax.last.salary %>
-  <%= remaining = salary - sum %>
+  <% totalexpenses = 0 %>
 </div>
 
-<h1> This is the finances page </h1>
+<h1> This is the Master Overview page: </h1>
+
+<h2>Your current salary: <%= Tax.last.salary %> <%= link_to 'change', taxes_path  %> </h2>
 
 <table>
   <tr>
@@ -25,60 +17,115 @@
   </tr>
 
   <tr id="housing">
-    <td>Housing</td>
-    <td><%= housingtotal / 365 %></td>
-    <td><%= housingtotal / 52 %></td>
-    <td><%= housingtotal / 26 %></td>
-    <td><%= housingtotal / 12 %></td>
-    <td><%= housingtotal %></td>
+    <% if Housingexp.count != 0 %>
+      <% housingtotal = ((Housingexp.last.mortgage) +
+      (Housingexp.last.utilities) + (Housingexp.last.propertytax)) %>
+      <% totalexpenses += housingtotal %>
+
+      <td>Housing</td>
+      <td><%= housingtotal / 365 %></td>
+      <td><%= housingtotal / 52 %></td>
+      <td><%= housingtotal / 26 %></td>
+      <td><%= housingtotal / 12 %></td>
+      <td><%= housingtotal %></td>
+
+    <% else %>
+
+      <td>Housing</td>
+      <td>Housing expenses not added. <%= link_to 'Add Expenses', new_housingexp_path %></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    <% end %>
   </tr>
 
   <tr id="car">
-    <td>Car</td>
-    <td><%= cartotal / 365 %></td>
-    <td><%= cartotal / 52 %></td>
-    <td><%= cartotal / 26 %></td>
-    <td><%= cartotal / 12 %></td>
-    <td><%= cartotal %></td>
+    <% if Carexp.count != 0 %>
+
+      <% cartotal = ((Carexp.last.gas) +
+      (Carexp.last.maintenance) + (Carexp.last.insurance) +
+      (Carexp.last.taxes)) %>
+      <% totalexpenses += cartotal %>
+
+      <td>Car</td>
+      <td><%= cartotal / 365 %></td>
+      <td><%= cartotal / 52 %></td>
+      <td><%= cartotal / 26 %></td>
+      <td><%= cartotal / 12 %></td>
+      <td><%= cartotal %></td>
+
+    <% else %>
+
+      <td>Car</td>
+      <td>Car expenses not added. <%= link_to 'Add Expenses', new_carexp_path %></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+
+    <% end %>
   </tr>
 
-  <tr id="groceries">
-    <td>Groceries</td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
+  <tr id="food">
+    <% if Foodexp.count != 0 %>
+
+      <% foodtotal = (12 * (Foodexp.last.monthlyfood)) %>
+      <% totalexpenses += foodtotal %>
+
+      <td>Food</td>
+      <td><%= foodtotal / 365 %></td>
+      <td><%= foodtotal / 52 %></td>
+      <td><%= foodtotal / 26 %></td>
+      <td><%= foodtotal / 12 %></td>
+      <td><%= foodtotal %></td>
+    <% else %>
+      <td>Food</td>
+      <td>Food expenses not added. <%= link_to 'Add Expenses', new_foodexp_path %></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    <% end %>
   </tr>
 
   <tr id="taxes">
-    <td>Taxes</td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
+    <% if Tax.count != 0 %>
 
-  <tr id="other">
-    <td>Other</td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
+      <% taxtotal = 0 %>
+      <% totalexpenses += taxtotal %>
+
+      <td>Taxes</td>
+      <td><%= taxtotal / 365 %></td>
+      <td><%= taxtotal / 52 %></td>
+      <td><%= taxtotal / 26 %></td>
+      <td><%= taxtotal / 12 %></td>
+      <td><%= taxtotal %></td>
+
+    <% else %>
+
+      <td>Taxes</td>
+      <td>Tax information not added. <%= link_to 'Add Expenses', new_taxexp_path %></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    <% end %>
   </tr>
 
   <tr id="totals">
-    <td>Expense Totals</td>
-    <td><%= sum / 365 %></td>
-    <td><%= sum / 52 %></td>
-    <td><%= sum / 26 %></td>
-    <td><%= sum / 12 %></td>
-    <td><%= sum %></td>
+
+      <td>Expense Totals</td>
+      <td><%= totalexpenses / 365 %></td>
+      <td><%= totalexpenses / 52 %></td>
+      <td><%= totalexpenses / 26 %></td>
+      <td><%= totalexpenses / 12 %></td>
+      <td><%= totalexpenses %></td>
+
   </tr>
 
   <tr id = "remaining">
+    <% remaining = Tax.last.salary - totalexpenses %>
     <td>Remaining Income</td>
     <td><%= remaining / 365 %></td>
     <td><%= remaining / 52 %></td>
@@ -90,7 +137,8 @@
 
 <p>
   <%= link_to "Cars Module", carexps_path %><br>
-  <%= link_to "Housing Module", housingexps_path %>
+  <%= link_to "Housing Module", housingexps_path %><br>
   <%= link_to "Taxes Module", taxes_path %><br>
+  <%= link_to "Food Module", foodexps_path %><br>
   <%= link_to "Home", root_path %><br>
 </p>

@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :foodexps
   resources :carexps
   resources :housingexps
   resources :taxes

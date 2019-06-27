@@ -1,0 +1,39 @@
+<div class="variables">
+  <%= monthlyfood = 12 * (Foodexp.last.monthlyfood) %>
+</div>
+
+<h1> Overview of your food expenses. </h1>
+
+<table>
+<tr>
+  <th></th>
+  <th>Daily</th>
+  <th>Weekly</th>
+  <th>Biweekly</th>
+  <th>Monthly</th>
+  <th>Yearly</th>
+</tr>
+
+<tr id="monthlyfood">
+  <td>Monthly Food Costs</td>
+  <td><%= monthlyfood / 365 %></td>
+  <td><%= monthlyfood / 52 %></td>
+  <td><%= monthlyfood / 26 %></td>
+  <td><%= monthlyfood / 12 %></td>
+  <td><%= monthlyfood %></td>
+</tr>
+
+</table>
+
+
+<p>
+  <%= link_to "Add Expenses", new_foodexp_path %>
+</p>
+
+<p>
+  <%= link_to "Master Expenses Sheet", master_path %>
+</p>
+
+<p>
+  <%= link_to "Home", root_path %>
+</p>

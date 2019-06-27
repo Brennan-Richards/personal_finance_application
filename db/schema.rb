@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_25_054218) do
+ActiveRecord::Schema.define(version: 2019_06_27_170934) do
 
   create_table "car_expenses", force: :cascade do |t|
     t.integer "gas"
@@ -35,6 +35,12 @@ ActiveRecord::Schema.define(version: 2019_06_25_054218) do
     t.integer "maintenace"
     t.integer "insurance"
     t.integer "taxes"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "foodexps", force: :cascade do |t|
+    t.integer "monthlyfood"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
