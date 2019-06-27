@@ -4,7 +4,9 @@
 
 <h1> This is the Master Overview page: </h1>
 
-<h2>Your current salary: <%= Tax.last.salary %> <%= link_to 'change', taxes_path  %> </h2>
+<% if Tax.last.salary > 0 %>
+  <h2>Your current salary: <%= Tax.last.salary %> <%= link_to 'change', taxes_path  %> </h2>
+<% end %>
 
 <table>
   <tr>
