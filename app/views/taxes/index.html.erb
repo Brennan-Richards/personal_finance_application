@@ -1,6 +1,6 @@
 <div class="variables">
-  <%= state = 0 %>
-  <%= federal = 0 %>
+  <%= state = Tax.last.sincome %>
+  <%= federal = Tax.last.fincome %>
   <%= socialsecurity = (Tax.last.salary) * 0.062 %>
   <%= medicare = (Tax.last.salary) * 0.0145 %>
   <%= disability = (Tax.last.salary) * 0.011 %>
@@ -19,16 +19,16 @@
   </tr>
 
   <tr>
-    <td>State Withholding Tax</td>
-    <td><%= state / 365%></td>
-    <td><%= state / 52 %></td>
-    <td><%= state / 26 %></td>
-    <td><%= state / 12 %></td>
-    <td><%= state %></td>
+    <td>State Income Tax</td>
+    <td><%= (state) / (365) %></td>
+    <td><%= (state) / (52) %></td>
+    <td><%= (state) / (26) %></td>
+    <td><%= (state) / (12) %></td>
+    <td><%= (state) %></td>
   </tr>
 
   <tr>
-    <td>Federal Withholding Tax</td>
+    <td>Federal Income Tax</td>
     <td><%= federal / 365%></td>
     <td><%= federal / 52 %></td>
     <td><%= federal / 26 %></td>
@@ -63,3 +63,7 @@
     <td><%= disability %></td>
   </tr>
 </table>
+
+<p><%= link_to 'Master Overview', master_path %></p>
+<p><%= link_to 'Home', root_path %></p>
+<p><%= link_to 'Append Tax Expenses', new_tax_path %></p>

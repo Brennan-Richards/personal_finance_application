@@ -92,7 +92,7 @@
   <tr id="taxes">
     <% if Tax.count != 0 %>
 
-      <% taxtotal = 0 %>
+      <% taxtotal = (Tax.last.salary * 0.0875) + Tax.last.sincome + Tax.last.fincome %>
       <% totalexpenses += taxtotal %>
 
       <td>Taxes</td>

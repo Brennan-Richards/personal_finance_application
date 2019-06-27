@@ -26,7 +26,7 @@ class TaxesController < ApplicationController
 
 private
   def tax_params
-    params.require(:tax).permit(:salary, :dependents, :selfemployed)
+    params.require(:tax).permit(:salary, :dependents, :selfemployed, :fincome, :sincome)
   end
 
 end

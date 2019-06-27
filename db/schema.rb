@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_27_170934) do
+ActiveRecord::Schema.define(version: 2019_06_27_185104) do
 
   create_table "car_expenses", force: :cascade do |t|
     t.integer "gas"
@@ -59,6 +59,8 @@ ActiveRecord::Schema.define(version: 2019_06_27_170934) do
     t.boolean "selfemployed"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "sincome"
+    t.integer "fincome"
   end
 
 end
