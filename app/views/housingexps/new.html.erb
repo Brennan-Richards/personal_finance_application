@@ -3,6 +3,22 @@
     all inputs should be monthly <strong>except</strong>
     property tax, which is a yearly expense:</h2>
 
+    <% if @housing.errors.any? %>
+
+      <h2>The following errors prevented the article from getting created</h2>
+
+        <ul>
+
+          <% @housingexp.errors.full_messages.each do |msg| %>
+
+            <li><%= msg %></li>
+
+          <% end %>
+
+        </ul>
+
+    <% end %>
+
 <%= form_for @housingexp do |f| %>
 
   <div>

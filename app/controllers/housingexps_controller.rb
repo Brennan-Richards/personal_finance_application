@@ -18,6 +18,7 @@ class HousingexpsController < ApplicationController
     @housingexp = Housingexp.new(housingexp_params)
 
     if @housingexp.save
+      flash[:notice] = "Housing expenses successfully added"
       redirect_to housingexps_path
     else
       render 'new'

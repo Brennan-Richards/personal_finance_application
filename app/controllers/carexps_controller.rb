@@ -18,6 +18,7 @@ class CarexpsController < ApplicationController
     @carexp = Carexp.new(carexp_params)
 
     if @carexp.save
+      flash[:notice] = "Car expenses successfully added"
       redirect_to carexps_path
     else
       render 'new'

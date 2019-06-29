@@ -18,6 +18,7 @@ class FoodexpsController < ApplicationController
     @foodexp = Foodexp.new(foodexp_params)
 
     if @foodexp.save
+      flash[:notice] = "Food expenses successfully added"
       redirect_to foodexps_path
     else
       render 'new'

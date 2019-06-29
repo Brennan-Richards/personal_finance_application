@@ -1,8 +1,26 @@
 <h1>Welcome to the Car Expenses Module. Please input your expenses.</h1>
 
+<% if @carexp.errors.any? %>
+
+  <h2>The following errors prevented the article from getting created</h2>
+
+    <ul>
+
+      <% @carexp.errors.full_messages.each do |msg| %>
+
+        <li><%= msg %></li>
+
+      <% end %>
+
+    </ul>
+
+<% end %>
+
 <%= form_for @carexp do |f| %>
 
+
     <div>
+
       <%=  f.label :gas %> <br>
       <%=  f.text_field :gas %> <br>
 
