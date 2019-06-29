@@ -27,6 +27,6 @@ class CarexpsController < ApplicationController
   private
 
   def carexp_params
-    params.require(:carexp).permit(:gas, :maintenance, :insurance, :taxes)
+    params.require(:carexp).permit(:gas, :maintenance, :insurance, :taxes, :payment)
   end
 end

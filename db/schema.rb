@@ -10,33 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_27_185104) do
-
-  create_table "car_expenses", force: :cascade do |t|
-    t.integer "gas"
-    t.integer "maintenance"
-    t.integer "insurance"
-    t.integer "taxes"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
+ActiveRecord::Schema.define(version: 2019_06_28_171000) do
 
   create_table "carexps", force: :cascade do |t|
-    t.integer "gas"
-    t.integer "maintenance"
-    t.integer "insurance"
-    t.integer "taxes"
+    t.float "gas"
+    t.float "maintenance"
+    t.float "insurance"
+    t.float "taxes"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "cars", force: :cascade do |t|
-    t.integer "gas"
-    t.integer "maintenace"
-    t.integer "insurance"
-    t.integer "taxes"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.float "payment"
   end
 
   create_table "foodexps", force: :cascade do |t|
@@ -47,10 +30,13 @@ ActiveRecord::Schema.define(version: 2019_06_27_185104) do
 
   create_table "housingexps", force: :cascade do |t|
     t.integer "mortgage"
-    t.integer "utilities"
     t.integer "propertytax"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "electricity"
+    t.integer "heating"
+    t.integer "water"
+    t.integer "entertainment"
   end
 
   create_table "taxes", force: :cascade do |t|

@@ -1,7 +1,11 @@
 <div class="variables">
-  <%= mortgage = Housingexp.last.mortgage %>
-  <%= utilities = Housingexp.last.utilities%>
-  <%= propertytax = Housingexp.last.propertytax %>
+  <% mortgage = 12 * (Housingexp.last.mortgage) %>
+  <% electricity = (Housingexp.last.electricity) %>
+  <% heating = 12 * (Housingexp.last.heating) %>
+  <% water = 12 * (Housingexp.last.water) %>
+  <% entertainment = 12 * (Housingexp.last.entertainment) %>
+  <% propertytax = (Housingexp.last.propertytax) %>
+  <% utilities = electricity + heating + water + entertainment  %>
 </div>
 
 <h1>View your expenses for the housing module below: </h1>
@@ -17,39 +21,39 @@
 </tr>
 
 <tr id="mortgage">
-  <td>mortgage</td>
-  <td><%= mortgage / 365 %></td>
-  <td><%= mortgage / 52 %></td>
-  <td><%= mortgage / 26 %></td>
-  <td><%= mortgage / 12 %></td>
-  <td><%= mortgage %></td>
+  <td>Mortgage</td>
+  <td>$<%= (mortgage / 365).round(2) %></td>
+  <td>$<%= (mortgage / 52).round(2) %></td>
+  <td>$<%= (mortgage / 26).round(2) %></td>
+  <td>$<%= (mortgage / 12).round(2) %></td>
+  <td>$<%= mortgage %></td>
 </tr>
 
-<tr id="utilities">
-  <td>utilities</td>
-  <td><%= utilities / 365 %></td>
-  <td><%= utilities / 52 %></td>
-  <td><%= utilities / 26 %></td>
-  <td><%= utilities / 12 %></td>
-  <td><%= utilities%></td>
+<tr id="electricity">
+  <td>Utilities</td>
+  <td>$<%= electricity / 365 %></td>
+  <td>$<%= utilities / 52 %></td>
+  <td>$<%= utilities / 26 %></td>
+  <td>$<%= utilities / 12 %></td>
+  <td>$<%= utilities%></td>
 </tr>
 
 <tr id="propertytax">
-  <td>propertytax</td>
-  <td><%= propertytax / 365 %></td>
-  <td><%= propertytax / 52 %></td>
-  <td><%= propertytax / 26 %></td>
-  <td><%= propertytax / 12 %></td>
-  <td><%= propertytax%></td>
+  <td>Property Tax</td>
+  <td>$<%= propertytax / 365 %></td>
+  <td>$<%= propertytax / 52 %></td>
+  <td>$<%= propertytax / 26 %></td>
+  <td>$<%= propertytax / 12 %></td>
+  <td>$<%= propertytax%> </td>
 </tr>
 
 <tr id="housing_totals">
   <td>Total Car Expenses</td>
-  <td> <%= (mortgage + utilities + propertytax) / 365%> </td>
-  <td> <%= (mortgage + utilities + propertytax) / 52%> </td>
-  <td> <%= (mortgage + utilities + propertytax) / 26 %> </td>
-  <td> <%= (mortgage + utilities + propertytax) / 12 %> </td>
-  <td> <%= (mortgage + utilities + propertytax) %></td>
+  <td>$<%= (mortgage + utilities + propertytax) / 365 %></td>
+  <td>$<%= (mortgage + utilities + propertytax) / 52 %></td>
+  <td>$<%= (mortgage + utilities + propertytax) / 26 %></td>
+  <td>$<%= (mortgage + utilities + propertytax) / 12 %></td>
+  <td>$<%= (mortgage + utilities + propertytax) %></td>
 </tr>
 
 </table>

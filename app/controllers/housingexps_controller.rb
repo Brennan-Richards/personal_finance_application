@@ -26,7 +26,7 @@ class HousingexpsController < ApplicationController
 
 private
   def housingexp_params
-    params.require(:housingexp).permit(:mortgage, :utilities, :propertytax)
+    params.require(:housingexp).permit(:mortgage, :propertytax, :electricity, :heating, :water, :entertainment)
   end
 
 end

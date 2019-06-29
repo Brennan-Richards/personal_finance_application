@@ -25,11 +25,11 @@
       <% totalexpenses += housingtotal %>
 
       <td>Housing</td>
-      <td><%= housingtotal / 365 %></td>
-      <td><%= housingtotal / 52 %></td>
-      <td><%= housingtotal / 26 %></td>
-      <td><%= housingtotal / 12 %></td>
-      <td><%= housingtotal %></td>
+      <td>$<%= (housingtotal / 365).round(2) %></td>
+      <td>$<%= (housingtotal / 52).round(2) %></td>
+      <td>$<%= (housingtotal / 26).round(2) %></td>
+      <td>$<%= (housingtotal / 12).round(2) %></td>
+      <td>$<%= (housingtotal).round(2) %></td>
 
     <% else %>
 
@@ -51,11 +51,11 @@
       <% totalexpenses += cartotal %>
 
       <td>Car</td>
-      <td><%= cartotal / 365 %></td>
-      <td><%= cartotal / 52 %></td>
-      <td><%= cartotal / 26 %></td>
-      <td><%= cartotal / 12 %></td>
-      <td><%= cartotal %></td>
+      <td>$<%= (cartotal / 365).round(2) %></td>
+      <td>$<%= (cartotal / 52).round(2) %></td>
+      <td>$<%= (cartotal / 26).round(2) %></td>
+      <td>$<%= (cartotal / 12).round(2) %></td>
+      <td>$<%= (cartotal).round(2) %></td>
 
     <% else %>
 
@@ -76,11 +76,11 @@
       <% totalexpenses += foodtotal %>
 
       <td>Food</td>
-      <td><%= foodtotal / 365 %></td>
-      <td><%= foodtotal / 52 %></td>
-      <td><%= foodtotal / 26 %></td>
-      <td><%= foodtotal / 12 %></td>
-      <td><%= foodtotal %></td>
+      <td>$<%= (foodtotal / 365).round(2) %></td>
+      <td>$<%= (foodtotal / 52).round(2) %></td>
+      <td>$<%= (foodtotal / 26).round(2) %></td>
+      <td>$<%= (foodtotal / 12).round(2) %></td>
+      <td>$<%= (foodtotal).round(2) %></td>
     <% else %>
       <td>Food</td>
       <td>Food expenses not added. <%= link_to 'Add Expenses', new_foodexp_path %></td>
@@ -98,11 +98,11 @@
       <% totalexpenses += taxtotal %>
 
       <td>Taxes</td>
-      <td><%= taxtotal / 365 %></td>
-      <td><%= taxtotal / 52 %></td>
-      <td><%= taxtotal / 26 %></td>
-      <td><%= taxtotal / 12 %></td>
-      <td><%= taxtotal %></td>
+      <td>$<%= (taxtotal / 365).round(2) %></td>
+      <td>$<%= (taxtotal / 52).round(2) %></td>
+      <td>$<%= (taxtotal / 26).round(2) %></td>
+      <td>$<%= (taxtotal / 12).round(2) %></td>
+      <td>$<%= (taxtotal).round(2) %></td>
 
     <% else %>
 
@@ -118,11 +118,11 @@
   <tr id="totals">
 
       <td>Expense Totals</td>
-      <td><%= totalexpenses / 365 %></td>
-      <td><%= totalexpenses / 52 %></td>
-      <td><%= totalexpenses / 26 %></td>
-      <td><%= totalexpenses / 12 %></td>
-      <td><%= totalexpenses %></td>
+      <td>$<%= (totalexpenses / 365).round(2) %></td>
+      <td>$<%= (totalexpenses / 52).round(2) %></td>
+      <td>$<%= (totalexpenses / 26).round(2) %></td>
+      <td>$<%= (totalexpenses / 12).round(2) %></td>
+      <td>$<%= (totalexpenses).round(2) %></td>
 
   </tr>
 
@@ -130,11 +130,11 @@
     <% if Tax.count > 0 %>
       <% remaining = Tax.last.salary - totalexpenses %>
       <td>Remaining Income</td>
-      <td><%= remaining / 365 %></td>
-      <td><%= remaining / 52 %></td>
-      <td><%= remaining / 26 %></td>
-      <td><%= remaining / 12 %></td>
-      <td><%= remaining %></td>
+      <td>$<%= (remaining / 365).round(2) %></td>
+      <td>$<%= (remaining / 52).round(2) %></td>
+      <td>$<%= (remaining / 26).round(2) %></td>
+      <td>$<%= (remaining / 12).round(2) %></td>
+      <td>$<%= (remaining).round(2) %></td>
     <% end %>
   </tr>
 </table>

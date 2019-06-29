@@ -3,6 +3,7 @@
   <%= insurance = Carexp.last.insurance %>
   <%= maintenance = Carexp.last.maintenance %>
   <%= taxes = Carexp.last.taxes %>
+  <%= payment = Carexp.last.payment %>
 </div>
 
 
@@ -52,6 +53,15 @@
   <td> <%= taxes / 26 %></td>
   <td> <%= taxes / 12 %> </td>
   <td> <%= taxes %></td>
+</tr>
+
+<tr id="payment">
+  <td>Taxes</td>
+  <td> <%= payment / 365 %></td>
+  <td> <%= payment / 52 %></td>
+  <td> <%= payment / 26 %></td>
+  <td> <%= payment / 12 %> </td>
+  <td> <%= payment %></td>
 </tr>
 
 <tr id="car_totals">

@@ -1,5 +1,7 @@
 <h1> Welcome to the Housing Expenses Module! </h1>
-<h2>Input your expenses below:</h2>
+<h2>Input your housing expenses below,
+    all inputs should be monthly <strong>except</strong>
+    property tax, which is a yearly expense:</h2>
 
 <%= form_for @housingexp do |f| %>
 
@@ -7,8 +9,17 @@
     <%= f.label :mortgage %><br>
     <%= f.text_field :mortgage  %> <br>
 
-    <%= f.label :utilities %><br>
-    <%= f.text_field :utilities  %> <br>
+    <%= f.label :electricity %><br>
+    <%= f.text_field :electricity  %> <br>
+
+    <%= f.label :water %><br>
+    <%= f.text_field :water  %> <br>
+
+    <%= f.label :heating %><br>
+    <%= f.text_field :heating  %> <br>
+
+    <%= f.label :entertainment %><br>
+    <%= f.text_field :entertainment  %> <br>
 
     <%= f.label :propertytax %><br>
     <%= f.text_field :propertytax  %> <br>
