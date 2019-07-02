@@ -10,43 +10,44 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_28_171000) do
+ActiveRecord::Schema.define(version: 2019_06_30_215407) do
 
   create_table "carexps", force: :cascade do |t|
-    t.float "gas"
-    t.float "maintenance"
-    t.float "insurance"
-    t.float "taxes"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.float "payment"
+    t.decimal "gas", precision: 11, scale: 2
+    t.decimal "maintenance", precision: 11, scale: 2
+    t.decimal "insurance", precision: 11, scale: 2
+    t.decimal "taxes", precision: 11, scale: 2
+    t.decimal "payment", precision: 11, scale: 2
   end
 
   create_table "foodexps", force: :cascade do |t|
-    t.integer "monthlyfood"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.decimal "monthlyfood", precision: 11, scale: 2
   end
 
   create_table "housingexps", force: :cascade do |t|
-    t.integer "mortgage"
-    t.integer "propertytax"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "electricity"
-    t.integer "heating"
-    t.integer "water"
-    t.integer "entertainment"
+    t.decimal "mortgage", precision: 11, scale: 2
+    t.decimal "propertytax", precision: 11, scale: 2
+    t.decimal "electricity", precision: 11, scale: 2
+    t.decimal "heating", precision: 11, scale: 2
+    t.decimal "water", precision: 11, scale: 2
+    t.decimal "entertainment", precision: 11, scale: 2
   end
 
   create_table "taxes", force: :cascade do |t|
-    t.float "salary"
-    t.integer "dependents"
-    t.boolean "selfemployed"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "sincome"
-    t.integer "fincome"
+    t.decimal "salary", precision: 11, scale: 2
+    t.decimal "sincome", precision: 11, scale: 2
+    t.decimal "fincome", precision: 11, scale: 2
+    t.decimal "medicare", precision: 11, scale: 2
+    t.decimal "disability", precision: 11, scale: 2
+    t.decimal "socialsecurity", precision: 11, scale: 2
   end
 
 end

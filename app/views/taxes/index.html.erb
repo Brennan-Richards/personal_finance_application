@@ -1,9 +1,9 @@
 <div class="variables">
-  <%= state = Tax.last.sincome %>
-  <%= federal = Tax.last.fincome %>
-  <%= socialsecurity = (Tax.last.salary) * 0.062 %>
-  <%= medicare = (Tax.last.salary) * 0.0145 %>
-  <%= disability = (Tax.last.salary) * 0.011 %>
+  <% state = Tax.last.sincome %>
+  <% federal = Tax.last.fincome %>
+  <% socialsecurity = (Tax.last.salary) * 0.062 %>
+  <% medicare = (Tax.last.salary) * 0.0145 %>
+  <% disability = (Tax.last.salary) * 0.011 %>
 </div>
 
 <h1>Overview of your income taxes. </h1>
@@ -20,47 +20,47 @@
 
   <tr>
     <td>State Income Tax</td>
-    <td><%= (state) / (365) %></td>
-    <td><%= (state) / (52) %></td>
-    <td><%= (state) / (26) %></td>
-    <td><%= (state) / (12) %></td>
-    <td><%= (state) %></td>
+    <td>$<%= (state / 365).round(2) %></td>
+    <td>$<%= (state / 52).round(2) %></td>
+    <td>$<%= (state / 26).round(2) %></td>
+    <td>$<%= (state / 12).round(2) %></td>
+    <td>$<%= state.round(2) %></td>
   </tr>
 
   <tr>
     <td>Federal Income Tax</td>
-    <td><%= federal / 365%></td>
-    <td><%= federal / 52 %></td>
-    <td><%= federal / 26 %></td>
-    <td><%= federal / 12 %></td>
-    <td><%= federal %></td>
+    <td>$<%= (federal / 365).round(2) %></td>
+    <td>$<%= (federal / 52).round(2) %></td>
+    <td>$<%= (federal / 26).round(2) %></td>
+    <td>$<%= (federal / 12).round(2) %></td>
+    <td>$<%= federal.round(2) %></td>
   </tr>
 
   <tr>
     <td>Social Security</td>
-    <td><%= socialsecurity / 365 %></td>
-    <td><%= socialsecurity / 52 %></td>
-    <td><%= socialsecurity / 26 %></td>
-    <td><%= socialsecurity / 12 %></td>
-    <td><%= socialsecurity %></td>
+    <td>$<%= (socialsecurity / 365).round(2) %></td>
+    <td>$<%= (socialsecurity / 52).round(2) %></td>
+    <td>$<%= (socialsecurity / 26).round(2) %></td>
+    <td>$<%= (socialsecurity / 12).round(2) %></td>
+    <td>$<%= socialsecurity.round(2) %></td>
   </tr>
 
   <tr>
     <td>Medicare</td>
-    <td><%= medicare / 365 %></td>
-    <td><%= medicare / 52 %></td>
-    <td><%= medicare / 26 %></td>
-    <td><%= medicare / 12 %></td>
-    <td><%= medicare %></td>
+    <td>$<%= (medicare / 365).round(2) %></td>
+    <td>$<%= (medicare / 52).round(2) %></td>
+    <td>$<%= (medicare / 26).round(2) %></td>
+    <td>$<%= (medicare / 12).round(2) %></td>
+    <td>$<%= medicare.round(2) %></td>
   </tr>
 
   <tr>
     <td>Disability</td>
-    <td><%= disability / 365 %></td>
-    <td><%= disability / 52 %></td>
-    <td><%= disability / 26 %></td>
-    <td><%= disability / 12 %></td>
-    <td><%= disability %></td>
+    <td>$<%= (disability / 365).round(2) %></td>
+    <td>$<%= (disability / 52).round(2) %></td>
+    <td>$<%= (disability / 26).round(2) %></td>
+    <td>$<%= (disability / 12).round(2) %></td>
+    <td>$<%= disability.round(2) %></td>
   </tr>
 </table>
 

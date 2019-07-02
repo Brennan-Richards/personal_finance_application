@@ -1,12 +1,14 @@
-<div class="variables">
-  <% mortgage = 12 * (Housingexp.last.mortgage) %>
-  <% electricity = (Housingexp.last.electricity) %>
-  <% heating = 12 * (Housingexp.last.heating) %>
-  <% water = 12 * (Housingexp.last.water) %>
-  <% entertainment = 12 * (Housingexp.last.entertainment) %>
-  <% propertytax = (Housingexp.last.propertytax) %>
-  <% utilities = electricity + heating + water + entertainment  %>
-</div>
+<% if Housingexp.count != 0 %>
+  <div class="variables">
+    <% mortgage = 12 * (Housingexp.last.mortgage) %>
+    <% electricity = (Housingexp.last.electricity) %>
+    <% heating = 12 * (Housingexp.last.heating) %>
+    <% water = 12 * (Housingexp.last.water) %>
+    <% entertainment = 12 * (Housingexp.last.entertainment) %>
+    <% propertytax = (Housingexp.last.propertytax) %>
+    <% utilities = electricity + heating + water + entertainment  %>
+  </div>
+<% end %>
 
 <h1>View your expenses for the housing module below: </h1>
 
@@ -22,38 +24,38 @@
 
 <tr id="mortgage">
   <td>Mortgage</td>
-  <td>$<%= (mortgage / 365).round(2) %></td>
-  <td>$<%= (mortgage / 52).round(2) %></td>
-  <td>$<%= (mortgage / 26).round(2) %></td>
-  <td>$<%= (mortgage / 12).round(2) %></td>
+  <td>$<%= (mortgage / 365.00).round(2) %></td>
+  <td>$<%= (mortgage / 52.00).round(2) %></td>
+  <td>$<%= (mortgage / 26.00).round(2) %></td>
+  <td>$<%= (mortgage / 12.00).round(2) %></td>
   <td>$<%= mortgage %></td>
 </tr>
 
 <tr id="electricity">
   <td>Utilities</td>
-  <td>$<%= electricity / 365 %></td>
-  <td>$<%= utilities / 52 %></td>
-  <td>$<%= utilities / 26 %></td>
-  <td>$<%= utilities / 12 %></td>
-  <td>$<%= utilities%></td>
+  <td>$<%= (electricity / 365).round(2) %></td>
+  <td>$<%= (utilities / 52).round(2) %></td>
+  <td>$<%= (utilities / 26).round(2) %></td>
+  <td>$<%= (utilities / 12).round(2) %></td>
+  <td>$<%= utilities.round(2) %></td>
 </tr>
 
 <tr id="propertytax">
   <td>Property Tax</td>
-  <td>$<%= propertytax / 365 %></td>
-  <td>$<%= propertytax / 52 %></td>
-  <td>$<%= propertytax / 26 %></td>
-  <td>$<%= propertytax / 12 %></td>
-  <td>$<%= propertytax%> </td>
+  <td>$<%= (propertytax / 365).round(2) %></td>
+  <td>$<%= (propertytax / 52).round(2) %></td>
+  <td>$<%= (propertytax / 26).round(2) %></td>
+  <td>$<%= (propertytax / 12).round(2) %></td>
+  <td>$<%= (propertytax).round(2) %> </td>
 </tr>
 
 <tr id="housing_totals">
   <td>Total Car Expenses</td>
-  <td>$<%= (mortgage + utilities + propertytax) / 365 %></td>
-  <td>$<%= (mortgage + utilities + propertytax) / 52 %></td>
-  <td>$<%= (mortgage + utilities + propertytax) / 26 %></td>
-  <td>$<%= (mortgage + utilities + propertytax) / 12 %></td>
-  <td>$<%= (mortgage + utilities + propertytax) %></td>
+  <td>$<%= ((mortgage + utilities + propertytax) / 365).round(2) %></td>
+  <td>$<%= ((mortgage + utilities + propertytax) / 52).round(2) %></td>
+  <td>$<%= ((mortgage + utilities + propertytax) / 26).round(2) %></td>
+  <td>$<%= ((mortgage + utilities + propertytax) / 12).round(2) %></td>
+  <td>$<%= ((mortgage + utilities + propertytax)).round(2) %></td>
 </tr>
 
 </table>

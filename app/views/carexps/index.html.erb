@@ -21,56 +21,56 @@
 
 <tr id="gas">
   <td>Gas</td>
-  <td><%= gas / 365 %></td>
-  <td><%= gas / 52 %></td>
-  <td><%= gas / 26 %></td>
-  <td><%= gas / 12 %></td>
-  <td><%= gas %></td>
+  <td>$<%= (gas / 365).round(2) %></td>
+  <td>$<%= (gas / 52).round(2) %></td>
+  <td>$<%= (gas / 26).round(2) %></td>
+  <td>$<%= (gas / 12).round(2) %></td>
+  <td>$<%= gas.round(2) %></td>
 </tr>
 
 <tr id="maintenance">
   <td>Maintenance</td>
-  <td><%= maintenance / 365 %></td>
-  <td><%= maintenance / 52 %></td>
-  <td><%= maintenance / 26 %></td>
-  <td><%= maintenance / 12 %></td>
-  <td><%= maintenance%></td>
+  <td>$<%= (maintenance / 365).round(2) %></td>
+  <td>$<%= (maintenance / 52).round(2) %></td>
+  <td>$<%= (maintenance / 26).round(2) %></td>
+  <td>$<%= (maintenance / 12).round(2) %></td>
+  <td>$<%= maintenance.round(2) %></td>
 </tr>
 
 <tr id="insurance">
   <td>Insurance</td>
-  <td><%= insurance / 365 %></td>
-  <td><%= insurance / 52 %></td>
-  <td><%= insurance / 26 %></td>
-  <td><%= insurance / 12 %></td>
-  <td><%= insurance%></td>
+  <td>$<%= (insurance / 365).round(2) %></td>
+  <td>$<%= (insurance / 52).round(2) %></td>
+  <td>$<%= (insurance / 26).round(2) %></td>
+  <td>$<%= (insurance / 12).round(2) %></td>
+  <td>$<%= insurance.round(2) %></td>
 </tr>
 
 <tr id="taxes">
   <td>Taxes</td>
-  <td> <%= taxes / 365 %></td>
-  <td> <%= taxes / 52 %></td>
-  <td> <%= taxes / 26 %></td>
-  <td> <%= taxes / 12 %> </td>
-  <td> <%= taxes %></td>
+  <td>$<%= (taxes / 365).round(2) %></td>
+  <td>$<%= (taxes / 52).round(2) %></td>
+  <td>$<%= (taxes / 26).round(2) %></td>
+  <td>$<%= (taxes / 12).round(2) %> </td>
+  <td>$<%= taxes.round(2) %></td>
 </tr>
 
 <tr id="payment">
   <td>Taxes</td>
-  <td> <%= payment / 365 %></td>
-  <td> <%= payment / 52 %></td>
-  <td> <%= payment / 26 %></td>
-  <td> <%= payment / 12 %> </td>
-  <td> <%= payment %></td>
+  <td>$<%= (payment / 365).round(2) %></td>
+  <td>$<%= (payment / 52).round(2) %></td>
+  <td>$<%= (payment / 26).round(2) %></td>
+  <td>$<%= (payment / 12).round(2) %> </td>
+  <td>$<%= payment.round(2) %></td>
 </tr>
 
 <tr id="car_totals">
   <td>Total Car Expenses</td>
-  <td> <%= (gas + maintenance + insurance + taxes) / 365%> </td>
-  <td> <%= (gas + maintenance + insurance + taxes) / 52%> </td>
-  <td> <%= (gas + maintenance + insurance + taxes) / 26 %> </td>
-  <td> <%= (gas + maintenance + insurance + taxes) / 12 %> </td>
-  <td> <%= (gas + maintenance + insurance + taxes) %></td>
+  <td>$<%= ((gas + maintenance + insurance + taxes) / 365).round(2) %></td>
+  <td>$<%= ((gas + maintenance + insurance + taxes) / 52).round(2) %></td>
+  <td>$<%= ((gas + maintenance + insurance + taxes) / 26).round(2) %></td>
+  <td>$<%= ((gas + maintenance + insurance + taxes) / 12).round(2) %></td>
+  <td>$<%= (gas + maintenance + insurance + taxes).round(2) %></td>
 </tr>
 
 </table>

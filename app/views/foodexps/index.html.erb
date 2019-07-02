@@ -16,11 +16,11 @@
 
 <tr id="monthlyfood">
   <td>Monthly Food Costs</td>
-  <td><%= monthlyfood / 365 %></td>
-  <td><%= monthlyfood / 52 %></td>
-  <td><%= monthlyfood / 26 %></td>
-  <td><%= monthlyfood / 12 %></td>
-  <td><%= monthlyfood %></td>
+  <td>$<%= (monthlyfood / 365).round(2) %></td>
+  <td>$<%= (monthlyfood / 52).round(2) %></td>
+  <td>$<%= (monthlyfood / 26).round(2) %></td>
+  <td>$<%= (monthlyfood / 12).round(2) %></td>
+  <td>$<%= monthlyfood.round(2) %></td>
 </tr>
 
 </table>
