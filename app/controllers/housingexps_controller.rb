@@ -25,6 +25,33 @@ class HousingexpsController < ApplicationController
     end
   end
 
+  def edit
+    @housingexp = Housingexp.last
+
+    if Housingexp.count == 0
+      redirect_to new_housingexp_path
+    else
+      render 'edit'
+    end
+
+  end
+
+  def update
+
+    if @housingexp.update(housingexp_params)
+
+      flash[:notice] = "Article was successfully updated"
+
+      redirect_to article_path(@housingexp)
+
+    else
+
+      render 'edit'
+
+    end
+
+  end
+
 private
   def housingexp_params
     params.require(:housingexp).permit(:mortgage, :propertytax, :electricity, :heating, :water, :entertainment)

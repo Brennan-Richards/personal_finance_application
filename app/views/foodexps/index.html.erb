@@ -25,13 +25,12 @@
 
 </table>
 
-
 <p>
-  <%= link_to "Add Expenses", new_foodexp_path %>
+  <%= link_to "Master Expenses Sheet", master_path %>
 </p>
 
 <p>
-  <%= link_to "Master Expenses Sheet", master_path %>
+<%= link_to "Update Expenses", edit_foodexp_path(Foodexp.last) if Foodexp.count > 0 %>
 </p>
 
 <p>

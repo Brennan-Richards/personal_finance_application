@@ -12,3 +12,33 @@ td {
 .variables {
   display: none;
 }
+
+table {
+
+  font-size: 20px;
+
+}
+
+#remaining {
+
+  margin-top: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  font-family: sans-serif;
+
+}
+
+#remaining > td {
+
+  padding: 2px;
+
+}
+
+#salary {
+
+  margin: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  font-family: sans-serif;
+
+}

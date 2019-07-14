@@ -18,10 +18,8 @@
 
 <%= form_for @tax do |f| %>
 
-<p>
-  <%= f.label :salary %>
-  <%= f.text_field :salary %>
-</p>
+
+<h3>Yearly</h3>
 
 <p>
   <%= f.label :sincome, "State Income Tax" %>
@@ -37,5 +35,8 @@
 <%= f.submit %>
 
 <%= link_to "Taxes Overview", taxes_path %>
+<p>
+<%= link_to "Update Expenses", edit_tax_path(Tax.last) if Tax.count > 0 %>
+</p>
 
 <% end %>

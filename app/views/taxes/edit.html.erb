@@ -1,0 +1,38 @@
+<h1>Fill out the form below to generate your tax expenses.</h1>
+
+<% if @tax.errors.any? %>
+
+  <h2>The following errors prevented the article from getting created</h2>
+
+    <ul>
+
+      <% @tax.errors.full_messages.each do |msg| %>
+
+        <li><%= msg %></li>
+
+      <% end %>
+
+    </ul>
+
+<% end %>
+
+<%= form_for @tax do |f| %>
+
+  <h3>Yearly</h3>
+
+    <p>
+      <%= f.label :sincome, "State Income Tax" %>
+      <%= f.text_field :sincome %>
+    </p>
+
+    <p>
+      <%= f.label :fincome, "Federal Income Tax" %>
+      <%= f.text_field :fincome %>
+    </p>
+
+
+  <%= f.submit %>
+<% end  %>
+
+<p><%= link_to "Taxes Overview", taxes_path %></p>
+<p><%= link_to "View All Expenses", master_path %></p>

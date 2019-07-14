@@ -1,9 +1,9 @@
 <div class="variables">
   <% state = Tax.last.sincome %>
   <% federal = Tax.last.fincome %>
-  <% socialsecurity = (Tax.last.salary) * 0.062 %>
-  <% medicare = (Tax.last.salary) * 0.0145 %>
-  <% disability = (Tax.last.salary) * 0.011 %>
+  <% socialsecurity = (Spec.last.salary) * 0.062 %>
+  <% medicare = (Spec.last.salary) * 0.0145 %>
+  <% disability = (Spec.last.salary) * 0.011 %>
 </div>
 
 <h1>Overview of your income taxes. </h1>
@@ -64,6 +64,18 @@
   </tr>
 </table>
 
-<p><%= link_to 'Master Overview', master_path %></p>
-<p><%= link_to 'Home', root_path %></p>
-<p><%= link_to 'Append Tax Expenses', new_tax_path %></p>
+<p>
+  <%= link_to 'Master Overview', master_path %>
+</p>
+
+<p>
+  <%= link_to 'Home', root_path %>
+</p>
+
+<p>
+  <%= link_to 'Update Tax Expenses', new_tax_path %>
+</p>
+
+<p>
+  <%= link_to "Update Expenses", edit_tax_path(Tax.last) if Tax.count > 0%>
+</p>

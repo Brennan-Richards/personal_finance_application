@@ -1,14 +1,15 @@
-<% if Housingexp.count != 0 %>
+
   <div class="variables">
-    <% mortgage = 12 * (Housingexp.last.mortgage) %>
-    <% electricity = (Housingexp.last.electricity) %>
-    <% heating = 12 * (Housingexp.last.heating) %>
-    <% water = 12 * (Housingexp.last.water) %>
-    <% entertainment = 12 * (Housingexp.last.entertainment) %>
-    <% propertytax = (Housingexp.last.propertytax) %>
-    <% utilities = electricity + heating + water + entertainment  %>
+    <% if Housingexp.count != 0 %>
+      <% mortgage = 12 * (Housingexp.last.mortgage) %>
+      <% electricity = (Housingexp.last.electricity) %>
+      <% heating = 12 * (Housingexp.last.heating) %>
+      <% water = 12 * (Housingexp.last.water) %>
+      <% entertainment = 12 * (Housingexp.last.entertainment) %>
+      <% propertytax = (Housingexp.last.propertytax) %>
+      <% utilities = electricity + heating + water + entertainment  %>
+    <% end %>
   </div>
-<% end %>
 
 <h1>View your expenses for the housing module below: </h1>
 
@@ -50,7 +51,7 @@
 </tr>
 
 <tr id="housing_totals">
-  <td>Total Car Expenses</td>
+  <td>Total House Expenses</td>
   <td>$<%= ((mortgage + utilities + propertytax) / 365).round(2) %></td>
   <td>$<%= ((mortgage + utilities + propertytax) / 52).round(2) %></td>
   <td>$<%= ((mortgage + utilities + propertytax) / 26).round(2) %></td>
@@ -70,4 +71,8 @@
 
 <p>
   <%= link_to "Home", root_path %>
+</p>
+
+<p>
+<%= link_to "Update Expenses", edit_housingexp_path(Housingexp.last) if Housingexp.count > 0 %>
 </p>

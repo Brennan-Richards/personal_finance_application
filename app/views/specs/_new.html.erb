@@ -1,0 +1,37 @@
+<% if @spec.errors.any? %>
+
+  <h2>The following errors prevented the article from getting created</h2>
+
+    <ul>
+
+      <% @spec.errors.full_messages.each do |msg| %>
+
+        <li><%= msg %></li>
+
+      <% end %>
+
+    </ul>
+
+<% end %>
+
+<%= form_for @spec do |f|%>
+
+  <h3>What is your yearly salary?</h3>
+  <%= f.label :salary %>
+  <%= f.text_field :salary %>
+
+  <h3>I get my paycheck:</h3>
+  <%= f.radio_button(:payperiod, "Daily") %>
+  <%= f.label(:payperiod_daily, "Daily") %>
+  <%= f.radio_button(:payperiod, "Weekly") %>
+  <%= f.label(:payperiod_weekly, "Weekly") %>
+  <%= f.radio_button(:payperiod, "Biweekly") %>
+  <%= f.label(:payperiod_biweekly, "Biweekly") %>
+  <%= f.radio_button(:payperiod, "Monthly") %>
+  <%= f.label(:payperiod_monthly, "Monthly") %>
+  <%= f.radio_button(:payperiod, "Yearly") %>
+  <%= f.label(:payperiod_yearly, "Yearly") %>
+
+  <%= f.submit %>
+
+<% end %>

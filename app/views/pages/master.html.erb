@@ -4,133 +4,142 @@
 
 <h1> This is the Master Overview page: </h1>
 
-<% if Tax.count != 0 %>
-  <h2>Your current salary: <%= Tax.last.salary %> <%= link_to 'change', taxes_path  %> </h2>
+<% if Spec.count > 0 %>
+
+  <h1 id="salary">Your salary is <%= Spec.last.salary %> </h1>
+
+<% else %>
+
+  <%= render 'specs/new' %>
+
 <% end %>
 
+<br><br>
+
 <table>
+    <tr>
+      <th></th>
+      <th>Daily</th>
+      <th>Weekly</th>
+      <th>Biweekly</th>
+      <th>Monthly</th>
+      <th>Yearly</th>
+    </tr>
+
+    <tr id="housing">
+      <% if Housingexp.count != 0 %>
+        <% housingtotal = ((Housingexp.last.mortgage) +
+        (Housingexp.last.electricity) + (Housingexp.last.water) +
+        (Housingexp.last.propertytax) + (Housingexp.last.heating) +
+        (Housingexp.last.entertainment)) %>
+        <% totalexpenses += housingtotal %>
+
+        <td><%= link_to "Housing", housingexps_path %></td>
+        <td>$<%= (housingtotal / 365).round(2) %></td>
+        <td>$<%= (housingtotal / 52).round(2) %></td>
+        <td>$<%= (housingtotal / 26).round(2) %></td>
+        <td>$<%= (housingtotal / 12).round(2) %></td>
+        <td>$<%= (housingtotal).round(2) %></td>
+
+      <% else %>
+
+        <td>Housing</td>
+        <td>Housing expenses not added. <%= link_to 'Add Expenses', new_housingexp_path %></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      <% end %>
+    </tr>
+
+    <tr id="car">
+      <% if Carexp.count != 0 %>
+
+        <% cartotal = ((Carexp.last.gas) +
+        (Carexp.last.maintenance) + (Carexp.last.insurance) +
+        (Carexp.last.taxes)) %>
+        <% totalexpenses += cartotal %>
+
+        <td><%= link_to "Car", carexps_path %></td>
+        <td>$<%= (cartotal / 365).round(2) %></td>
+        <td>$<%= (cartotal / 52).round(2) %></td>
+        <td>$<%= (cartotal / 26).round(2) %></td>
+        <td>$<%= (cartotal / 12).round(2) %></td>
+        <td>$<%= (cartotal).round(2) %></td>
+
+      <% else %>
+
+        <td>Car</td>
+        <td>Car expenses not added. <%= link_to 'Add Expenses', new_carexp_path %></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+
+      <% end %>
+    </tr>
+
+    <tr id="food">
+      <% if Foodexp.count != 0 %>
+
+        <% foodtotal = (12 * (Foodexp.last.monthlyfood)) %>
+        <% totalexpenses += foodtotal %>
+
+        <td><%= link_to "Food", foodexps_path %></td>
+        <td>$<%= (foodtotal / 365).round(2) %></td>
+        <td>$<%= (foodtotal / 52).round(2) %></td>
+        <td>$<%= (foodtotal / 26).round(2) %></td>
+        <td>$<%= (foodtotal / 12).round(2) %></td>
+        <td>$<%= (foodtotal).round(2) %></td>
+      <% else %>
+        <td>Food</td>
+        <td>Food expenses not added. <%= link_to 'Add Expenses', new_foodexp_path %></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      <% end %>
+    </tr>
+
+    <tr id="taxes">
+      <% if Tax.count != 0 %>
+
+        <% taxtotal = (Spec.last.salary * 0.0875) + Tax.last.sincome + Tax.last.fincome %>
+        <% totalexpenses += taxtotal %>
+
+        <td><%= link_to "Taxes", taxes_path %></td>
+        <td>$<%= (taxtotal / 365).round(2) %></td>
+        <td>$<%= (taxtotal / 52).round(2) %></td>
+        <td>$<%= (taxtotal / 26).round(2) %></td>
+        <td>$<%= (taxtotal / 12).round(2) %></td>
+        <td>$<%= (taxtotal).round(2) %></td>
+
+      <% else %>
+
+        <td>Taxes</td>
+        <td>Tax information not added. <%= link_to 'Add Expenses', new_tax_path %></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      <% end %>
+    </tr>
+
+    <tr id="expense_totals">
+        <td>Expense Totals</td>
+        <td>$<%= (totalexpenses / 365).round(2) %></td>
+        <td>$<%= (totalexpenses / 52).round(2) %></td>
+        <td>$<%= (totalexpenses / 26).round(2) %></td>
+        <td>$<%= (totalexpenses / 12).round(2) %></td>
+        <td>$<%= (totalexpenses).round(2) %></td>
+    </tr>
+
+</table>
+
+<table  id = "remaining">
   <tr>
-    <th></th>
-    <th>Daily</th>
-    <th>Weekly</th>
-    <th>Biweekly</th>
-    <th>Monthly</th>
-    <th>Yearly</th>
-  </tr>
-
-  <tr id="housing">
-    <% if Housingexp.count != 0 %>
-      <% housingtotal = ((Housingexp.last.mortgage) +
-      (Housingexp.last.electricity) + (Housingexp.last.water) +
-      (Housingexp.last.propertytax) + (Housingexp.last.heating) +
-      (Housingexp.last.entertainment)) %>
-      <% totalexpenses += housingtotal %>
-
-      <td>Housing</td>
-      <td>$<%= (housingtotal / 365).round(2) %></td>
-      <td>$<%= (housingtotal / 52).round(2) %></td>
-      <td>$<%= (housingtotal / 26).round(2) %></td>
-      <td>$<%= (housingtotal / 12).round(2) %></td>
-      <td>$<%= (housingtotal).round(2) %></td>
-
-    <% else %>
-
-      <td>Housing</td>
-      <td>Housing expenses not added. <%= link_to 'Add Expenses', new_housingexp_path %></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-    <% end %>
-  </tr>
-
-  <tr id="car">
-    <% if Carexp.count != 0 %>
-
-      <% cartotal = ((Carexp.last.gas) +
-      (Carexp.last.maintenance) + (Carexp.last.insurance) +
-      (Carexp.last.taxes)) %>
-      <% totalexpenses += cartotal %>
-
-      <td>Car</td>
-      <td>$<%= (cartotal / 365).round(2) %></td>
-      <td>$<%= (cartotal / 52).round(2) %></td>
-      <td>$<%= (cartotal / 26).round(2) %></td>
-      <td>$<%= (cartotal / 12).round(2) %></td>
-      <td>$<%= (cartotal).round(2) %></td>
-
-    <% else %>
-
-      <td>Car</td>
-      <td>Car expenses not added. <%= link_to 'Add Expenses', new_carexp_path %></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-
-    <% end %>
-  </tr>
-
-  <tr id="food">
-    <% if Foodexp.count != 0 %>
-
-      <% foodtotal = (12 * (Foodexp.last.monthlyfood)) %>
-      <% totalexpenses += foodtotal %>
-
-      <td>Food</td>
-      <td>$<%= (foodtotal / 365).round(2) %></td>
-      <td>$<%= (foodtotal / 52).round(2) %></td>
-      <td>$<%= (foodtotal / 26).round(2) %></td>
-      <td>$<%= (foodtotal / 12).round(2) %></td>
-      <td>$<%= (foodtotal).round(2) %></td>
-    <% else %>
-      <td>Food</td>
-      <td>Food expenses not added. <%= link_to 'Add Expenses', new_foodexp_path %></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-    <% end %>
-  </tr>
-
-  <tr id="taxes">
-    <% if Tax.count != 0 %>
-
-      <% taxtotal = (Tax.last.salary * 0.0875) + Tax.last.sincome + Tax.last.fincome %>
-      <% totalexpenses += taxtotal %>
-
-      <td>Taxes</td>
-      <td>$<%= (taxtotal / 365).round(2) %></td>
-      <td>$<%= (taxtotal / 52).round(2) %></td>
-      <td>$<%= (taxtotal / 26).round(2) %></td>
-      <td>$<%= (taxtotal / 12).round(2) %></td>
-      <td>$<%= (taxtotal).round(2) %></td>
-
-    <% else %>
-
-      <td>Taxes</td>
-      <td>Tax information not added. <%= link_to 'Add Expenses', new_tax_path %></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-    <% end %>
-  </tr>
-
-  <tr id="totals">
-
-      <td>Expense Totals</td>
-      <td>$<%= (totalexpenses / 365).round(2) %></td>
-      <td>$<%= (totalexpenses / 52).round(2) %></td>
-      <td>$<%= (totalexpenses / 26).round(2) %></td>
-      <td>$<%= (totalexpenses / 12).round(2) %></td>
-      <td>$<%= (totalexpenses).round(2) %></td>
-
-  </tr>
-
-  <tr id = "remaining">
-    <% if Tax.count > 0 %>
-      <% remaining = Tax.last.salary - totalexpenses %>
+    <% if Spec.count > 0 %>
+      <% remaining = Spec.last.salary - totalexpenses %>
       <td>Remaining Income</td>
       <td>$<%= (remaining / 365).round(2) %></td>
       <td>$<%= (remaining / 52).round(2) %></td>
@@ -140,11 +149,3 @@
     <% end %>
   </tr>
 </table>
-
-<p>
-  <%= link_to "Cars Module", carexps_path %><br>
-  <%= link_to "Housing Module", housingexps_path %><br>
-  <%= link_to "Taxes Module", taxes_path %><br>
-  <%= link_to "Food Module", foodexps_path %><br>
-  <%= link_to "Home", root_path %><br>
-</p>

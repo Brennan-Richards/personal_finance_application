@@ -25,6 +25,34 @@ class TaxesController < ApplicationController
     end
   end
 
+  def edit
+
+    @tax = Tax.last
+
+    if Tax.count == 0
+      redirect_to new_tax_path
+    else
+      render 'edit'
+    end
+
+  end
+
+  def update
+
+    if @tax.update(tax_params)
+
+      flash[:notice] = "Article was successfully updated"
+
+      redirect_to article_path(@tax)
+
+    else
+
+      render 'edit'
+
+    end
+
+  end
+
 private
   def tax_params
     params.require(:tax).permit(:salary, :dependents, :selfemployed, :fincome, :sincome)

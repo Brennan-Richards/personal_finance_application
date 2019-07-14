@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_30_215407) do
+ActiveRecord::Schema.define(version: 2019_07_14_185421) do
 
   create_table "carexps", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -39,10 +39,16 @@ ActiveRecord::Schema.define(version: 2019_06_30_215407) do
     t.decimal "entertainment", precision: 11, scale: 2
   end
 
+  create_table "specs", force: :cascade do |t|
+    t.string "payperiod"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "salary"
+  end
+
   create_table "taxes", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.decimal "salary", precision: 11, scale: 2
     t.decimal "sincome", precision: 11, scale: 2
     t.decimal "fincome", precision: 11, scale: 2
     t.decimal "medicare", precision: 11, scale: 2

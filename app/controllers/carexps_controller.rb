@@ -25,6 +25,34 @@ class CarexpsController < ApplicationController
     end
   end
 
+  def edit
+    
+    @carexp = Carexp.last
+
+    if Carexp.count == 0
+      redirect_to new_carexp_path
+    else
+      render 'edit'
+    end
+
+  end
+
+  def update
+
+    if @carexp.update(carexp_params)
+
+      flash[:notice] = "Article was successfully updated"
+
+      redirect_to article_path(@carexp)
+
+    else
+
+      render 'edit'
+
+    end
+
+  end
+
   private
 
   def carexp_params
