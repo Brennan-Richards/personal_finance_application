@@ -1,7 +1,6 @@
 class FoodexpsController < ApplicationController
 
   def index
-    last = Foodexp.last.id
     @foodexps = Foodexp.all
 
     if Foodexp.count == 0
