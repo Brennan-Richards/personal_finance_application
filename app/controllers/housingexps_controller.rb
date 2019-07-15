@@ -38,11 +38,13 @@ class HousingexpsController < ApplicationController
 
   def update
 
+    @housingexp = Housingexp.last
+
     if @housingexp.update(housingexp_params)
 
       flash[:notice] = "Article was successfully updated"
 
-      redirect_to article_path(@housingexp)
+      redirect_to housingexps_path
 
     else
 

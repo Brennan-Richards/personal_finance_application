@@ -39,11 +39,13 @@ class TaxesController < ApplicationController
 
   def update
 
+    @tax = Tax.last
+
     if @tax.update(tax_params)
 
-      flash[:notice] = "Article was successfully updated"
+      flash[:notice] = "Tax expenses successfully updated."
 
-      redirect_to article_path(@tax)
+      redirect_to taxes_path
 
     else
 

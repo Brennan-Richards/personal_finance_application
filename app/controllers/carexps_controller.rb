@@ -26,7 +26,7 @@ class CarexpsController < ApplicationController
   end
 
   def edit
-    
+
     @carexp = Carexp.last
 
     if Carexp.count == 0
@@ -39,11 +39,13 @@ class CarexpsController < ApplicationController
 
   def update
 
+    @carexp = Carexp.last
+
     if @carexp.update(carexp_params)
 
-      flash[:notice] = "Article was successfully updated"
+      flash[:notice] = "Car expenses were successfully updated."
 
-      redirect_to article_path(@carexp)
+      redirect_to carexps_path
 
     else
 

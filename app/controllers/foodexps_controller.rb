@@ -37,11 +37,13 @@ class FoodexpsController < ApplicationController
 
   def update
 
+    @foodexp = Foodexp.last
+
     if @foodexp.update(foodexp_params)
 
-      flash[:notice] = "Article was successfully updated"
+      flash[:notice] = "Food expenses successfully updated"
 
-      redirect_to article_path(@foodexp)
+      redirect_to foodexps_path
 
     else
 
