@@ -1,6 +1,8 @@
+<% if !(@user.foodexp.nil?) %>
 <div class="variables">
-  <%= monthlyfood = 12 * (Foodexp.last.monthlyfood) %>
+  <%= monthlyfood = 12 * (@user.foodexp.monthlyfood) %>
 </div>
+<% end %>
 
 <h1> Overview of your food expenses. </h1>
 

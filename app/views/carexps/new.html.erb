@@ -46,7 +46,7 @@
   </p>
 
   <p>
-  <%= link_to "Update Expenses", edit_carexp_path(Carexp.last) if Carexp.count > 0%>
+  <%= link_to "Update Expenses", edit_carexp_path(current_user)%>
   </p>
 
   <p>

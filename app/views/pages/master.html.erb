@@ -116,7 +116,7 @@
 
       <% else %>
 
-        <% taxtotal = (@user.spec.salary * 0.0875) + Tax.last.sincome + Tax.last.fincome %>
+        <% taxtotal = (@user.spec.salary * 0.0875) + @user.tax.sincome + @user.tax.fincome %>
         <% totalexpenses += taxtotal %>
 
         <td><%= link_to "Taxes", taxes_path %></td>

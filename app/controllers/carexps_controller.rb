@@ -5,7 +5,7 @@ class CarexpsController < ApplicationController
     @carexps = @user.carexp
 
 
-    if Carexp.count == 0
+    if @user.carexp.nil?
       redirect_to new_carexp_path
     else
       render 'index'
@@ -30,9 +30,10 @@ class CarexpsController < ApplicationController
 
   def edit
 
-    @carexp = Carexp.last
+    @user = current_user
+    @carexp = @user.carexp
 
-    if Carexp.count == 0
+    if @user.carexp.nil?
       redirect_to new_carexp_path
     else
       render 'edit'
@@ -41,8 +42,8 @@ class CarexpsController < ApplicationController
   end
 
   def update
-
-    @carexp = Carexp.last
+    @user = current_user
+    @carexp = @user.carexp
 
     if @carexp.update(carexp_params)
 

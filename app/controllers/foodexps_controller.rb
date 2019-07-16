@@ -4,7 +4,7 @@ class FoodexpsController < ApplicationController
     @user = current_user
     @foodexps = @user.foodexp
 
-    if Foodexp.count == 0
+    if @user.foodexp.nil?
       redirect_to new_foodexp_path
     else
       render 'index'
@@ -28,9 +28,10 @@ class FoodexpsController < ApplicationController
   end
 
   def edit
-    @foodexp = Foodexp.last
+    @user = current_user
+    @foodexp = @user.foodexp
 
-    if Foodexp.count == 0
+    if @user.foodexp.nil?
       redirect_to new_foodexp_path
     else
       render 'edit'
@@ -38,8 +39,9 @@ class FoodexpsController < ApplicationController
   end
 
   def update
+    @user = current_user
 
-    @foodexp = Foodexp.last
+    @foodexp = @user.foodexp
 
     if @foodexp.update(foodexp_params)
 

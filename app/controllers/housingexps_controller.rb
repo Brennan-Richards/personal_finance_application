@@ -4,7 +4,7 @@ class HousingexpsController < ApplicationController
     @user = current_user
     @housingexps = @user.housingexp
 
-    if Housingexp.count == 0
+    if @user.housingexp.nil?
       redirect_to new_housingexp_path
     else
       render 'index'
@@ -28,9 +28,10 @@ class HousingexpsController < ApplicationController
   end
 
   def edit
-    @housingexp = Housingexp.last
+    @user = current_user
+    @housingexp = @user.housingexp
 
-    if Housingexp.count == 0
+    if @user.housingexp.nil?
       redirect_to new_housingexp_path
     else
       render 'edit'
@@ -39,8 +40,8 @@ class HousingexpsController < ApplicationController
   end
 
   def update
-
-    @housingexp = Housingexp.last
+    @user = current_user
+    @housingexp = @user.housingexp
 
     if @housingexp.update(housingexp_params)
 

@@ -36,7 +36,7 @@
 
 <%= link_to "Taxes Overview", taxes_path %>
 <p>
-<%= link_to "Update Expenses", edit_tax_path(Tax.last) if Tax.count > 0 %>
+<%= link_to "Update Expenses", edit_tax_path(current_user)%>
 </p>
 
 <% end %>

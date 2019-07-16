@@ -20,10 +20,10 @@ class SpecsController < ApplicationController
   end
 
   def edit
+      @user = current_user
+      @spec = @user.spec
 
-      @spec = Spec.last
-
-      if Spec.count == 0
+      if @user.spec.nil?
         redirect_to new_spec_path
       else
         render 'edit'
@@ -32,7 +32,8 @@ class SpecsController < ApplicationController
   end
 
   def update
-      @spec = Spec.last
+      @user = current_user
+      @spec = @user.spec
 
       if @spec.update(spec_params)
 

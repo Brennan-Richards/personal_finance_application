@@ -4,7 +4,7 @@ class TaxesController < ApplicationController
     @user = current_user
     @taxes = @user.tax
 
-    if Tax.count == 0
+    if @user.tax.nil?
       redirect_to new_tax_path
     else
       render 'index'
@@ -28,10 +28,10 @@ class TaxesController < ApplicationController
   end
 
   def edit
+    @user = current_user
+    @tax = @user.tax
 
-    @tax = Tax.last
-
-    if Tax.count == 0
+    if @user.tax.nil?
       redirect_to new_tax_path
     else
       render 'edit'
@@ -40,8 +40,8 @@ class TaxesController < ApplicationController
   end
 
   def update
-
-    @tax = Tax.last
+    @user = current_user
+    @tax = @user.tax
 
     if @tax.update(tax_params)
 

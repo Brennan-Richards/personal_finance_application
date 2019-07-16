@@ -1,5 +1,5 @@
 <div class="variables">
-  <% if Carexp.count != 0 %>
+  <% if !(@user.carexp.nil?) %>
     <% gas = @user.carexp.gas %>
     <% insurance = @user.carexp.insurance %>
     <% maintenance = @user.carexp.maintenance %>

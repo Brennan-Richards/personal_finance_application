@@ -1,12 +1,12 @@
 
   <div class="variables">
-    <% if Housingexp.count != 0 %>
-      <% mortgage = 12 * (Housingexp.last.mortgage) %>
-      <% electricity = (Housingexp.last.electricity) %>
-      <% heating = 12 * (Housingexp.last.heating) %>
-      <% water = 12 * (Housingexp.last.water) %>
-      <% entertainment = 12 * (Housingexp.last.entertainment) %>
-      <% propertytax = (Housingexp.last.propertytax) %>
+    <% if !(@user.housingexp.nil?) %>
+      <% mortgage = 12 * (@user.housingexp.mortgage) %>
+      <% electricity = (@user.housingexp.electricity) %>
+      <% heating = 12 * (@user.housingexp.heating) %>
+      <% water = 12 * (@user.housingexp.water) %>
+      <% entertainment = 12 * (@user.housingexp.entertainment) %>
+      <% propertytax = (@user.housingexp.propertytax) %>
       <% utilities = electricity + heating + water + entertainment  %>
     <% end %>
   </div>

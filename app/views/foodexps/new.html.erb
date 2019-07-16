@@ -37,5 +37,5 @@
 <%= link_to 'Overview of Food Expenses', foodexps_path %> |
 <%= link_to 'View all expenses', master_path %>
 <p>
-<%= link_to "Update Expenses", edit_foodexp_path(Foodexp.last) if Foodexp.count > 0 %>
+<%= link_to "Update Expenses", edit_foodexp_path(current_user) %>
 </p>
