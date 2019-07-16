@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  devise_for :users
   resources :foodexps
   resources :carexps
   resources :housingexps

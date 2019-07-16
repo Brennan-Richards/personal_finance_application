@@ -1,6 +1,21 @@
 <h1> Hello and welcome to the finances application home page. </h1>
 
-Create users branch.
+<h2>Create users branch.</h2>
+<br>
+<br>
+
+
+<p>
+  <%= link_to "Sign up", new_user_registration_path %>
+</p>
+
+<p>
+  <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+</p>
+
+<p>
+  <%= link_to "Sign in", new_user_session_path %>
+</p>
 
 <%= link_to "Cars Module", carexps_path %><br>
 <%= link_to "Housing Module", housingexps_path %><br>
