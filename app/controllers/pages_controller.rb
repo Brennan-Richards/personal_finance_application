@@ -8,9 +8,9 @@ class PagesController < ApplicationController
   end
 
   def master
-    #@spec = user.spec #necessary for the _newspec partial to function
+    @spec = Spec.new
     @user = current_user
-    
+
     if current_user
       render 'master'
     else

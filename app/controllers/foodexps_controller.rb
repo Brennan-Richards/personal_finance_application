@@ -1,7 +1,8 @@
 class FoodexpsController < ApplicationController
 
   def index
-    @foodexps = Foodexp.all
+    @user = current_user
+    @foodexps = @user.foodexp
 
     if Foodexp.count == 0
       redirect_to new_foodexp_path

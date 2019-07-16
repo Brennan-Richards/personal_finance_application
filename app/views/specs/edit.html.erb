@@ -1,0 +1,26 @@
+<% if @spec.errors.any? %>
+
+  <h2>The following errors prevented the article from getting created</h2>
+
+    <ul>
+
+      <% @spec.errors.full_messages.each do |msg| %>
+
+        <li><%= msg %></li>
+
+      <% end %>
+
+    </ul>
+
+<% end %>
+
+<%= form_for @spec do |f|%>
+
+<h3>What is your yearly salary?</h3>
+
+<%= f.label :salary %>
+<%= f.text_field :salary %>
+
+<%= f.submit %>
+
+<% end %>

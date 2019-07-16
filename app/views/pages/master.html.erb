@@ -18,6 +18,12 @@
       <th>Yearly</th>
     </tr>
 
+    <% if @user.spec.nil? %>
+      <h2>No salary added.</h2><% link_to "Add salary", new_spec_path %>
+    <% else %>
+      <h2>Your salary is: <%= @user.spec.salary %></h2><%= link_to "Change salary", edit_spec_path(current_user) %>
+    <% end %>
+
     <tr id="housing">
       <% if @user.housingexp.nil? %>
 
@@ -110,7 +116,7 @@
 
       <% else %>
 
-        <% taxtotal = (Spec.last.salary * 0.0875) + Tax.last.sincome + Tax.last.fincome %>
+        <% taxtotal = (@user.spec.salary * 0.0875) + Tax.last.sincome + Tax.last.fincome %>
         <% totalexpenses += taxtotal %>
 
         <td><%= link_to "Taxes", taxes_path %></td>

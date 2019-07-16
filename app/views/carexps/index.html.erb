@@ -1,10 +1,11 @@
 <div class="variables">
   <% if Carexp.count != 0 %>
-    <%= gas = Carexp.last.gas %>
-    <%= insurance = Carexp.last.insurance %>
-    <%= maintenance = Carexp.last.maintenance %>
-    <%= taxes = Carexp.last.taxes %>
-    <%= payment = Carexp.last.payment %>
+    <% gas = @user.carexp.gas %>
+    <% insurance = @user.carexp.insurance %>
+    <% maintenance = @user.carexp.maintenance %>
+    <% taxes = @user.carexp.taxes %>
+    <% payment = @user.carexp.payment %>
+    <% total = gas + insurance + maintenance + taxes + payment %>
   <% end %>
 </div>
 
@@ -58,7 +59,7 @@
 </tr>
 
 <tr id="payment">
-  <td>Taxes</td>
+  <td>Payment</td>
   <td>$<%= (payment / 365).round(2) %></td>
   <td>$<%= (payment / 52).round(2) %></td>
   <td>$<%= (payment / 26).round(2) %></td>
@@ -68,11 +69,11 @@
 
 <tr id="car_totals">
   <td>Total Car Expenses</td>
-  <td>$<%= ((gas + maintenance + insurance + taxes) / 365).round(2) %></td>
-  <td>$<%= ((gas + maintenance + insurance + taxes) / 52).round(2) %></td>
-  <td>$<%= ((gas + maintenance + insurance + taxes) / 26).round(2) %></td>
-  <td>$<%= ((gas + maintenance + insurance + taxes) / 12).round(2) %></td>
-  <td>$<%= (gas + maintenance + insurance + taxes).round(2) %></td>
+  <td>$<%= (total / 365).round(2) %></td>
+  <td>$<%= (total / 52).round(2) %></td>
+  <td>$<%= (total / 26).round(2) %></td>
+  <td>$<%= (total / 12).round(2) %></td>
+  <td>$<%= total.round(2) %></td>
 </tr>
 
 </table>
@@ -82,7 +83,7 @@
 </p>
 
 <p>
-<%= link_to "Update Expenses", edit_carexp_path(Carexp.last) if Carexp.count > 0%>
+<%= link_to "Update Expenses", edit_carexp_path(current_user)%>
 </p>
 
 <p>

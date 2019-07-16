@@ -1,12 +1,12 @@
-<div class="variables">
-  <% state = Tax.last.sincome %>
-  <% federal = Tax.last.fincome %>
-  <% socialsecurity = (Spec.last.salary) * 0.062 %>
-  <% medicare = (Spec.last.salary) * 0.0145 %>
-  <% disability = (Spec.last.salary) * 0.011 %>
-</div>
-
 <h1>Overview of your income taxes. </h1>
+
+<div class="variables">
+  <% sincome = @user.tax.sincome  %>
+  <% fincome = @user.tax.fincome %>
+  <% if !(@user.spec.nil?)%>
+   <% salary = @user.spec.salary %>
+  <% end  %>
+</div>
 
 <table>
   <tr>
@@ -20,58 +20,81 @@
 
   <tr>
     <td>State Income Tax</td>
-    <td>$<%= (state / 365).round(2) %></td>
-    <td>$<%= (state / 52).round(2) %></td>
-    <td>$<%= (state / 26).round(2) %></td>
-    <td>$<%= (state / 12).round(2) %></td>
-    <td>$<%= state.round(2) %></td>
+    <td>$<%= (sincome / 365).round(2) %></td>
+    <td>$<%= (sincome / 52).round(2) %></td>
+    <td>$<%= (sincome / 26).round(2) %></td>
+    <td>$<%= (sincome / 12).round(2) %></td>
+    <td>$<%= sincome.round(2) %></td>
   </tr>
 
   <tr>
     <td>Federal Income Tax</td>
-    <td>$<%= (federal / 365).round(2) %></td>
-    <td>$<%= (federal / 52).round(2) %></td>
-    <td>$<%= (federal / 26).round(2) %></td>
-    <td>$<%= (federal / 12).round(2) %></td>
-    <td>$<%= federal.round(2) %></td>
+    <td>$<%= (fincome / 365).round(2) %></td>
+    <td>$<%= (fincome / 52).round(2) %></td>
+    <td>$<%= (fincome / 26).round(2) %></td>
+    <td>$<%= (fincome / 12).round(2) %></td>
+    <td>$<%= fincome.round(2) %></td>
   </tr>
 
+<% if @user.spec.nil?%>
+  <td>Social Security</td>
+  <td>Salary not added. Add salary to calculate Social Security. <%= link_to 'Add Salary', new_spec_path %></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+
+  <td>Medicare</td>
+  <td>Salary not added. Add salary to calculate Medicare. <%= link_to 'Add Salary', new_spec_path %></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+
+  <td>Disability</td>
+  <td>Salary not added. Add salary to calculate Disability. <%= link_to 'Add Salary', new_spec_path %></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+<% else  %>
   <tr>
     <td>Social Security</td>
-    <td>$<%= (socialsecurity / 365).round(2) %></td>
-    <td>$<%= (socialsecurity / 52).round(2) %></td>
-    <td>$<%= (socialsecurity / 26).round(2) %></td>
-    <td>$<%= (socialsecurity / 12).round(2) %></td>
-    <td>$<%= socialsecurity.round(2) %></td>
+    <td>$<%= ((salary * 0.062) / 365).round(2) %></td>
+    <td>$<%= ((salary * 0.062) / 52).round(2) %></td>
+    <td>$<%= ((salary * 0.062) / 26).round(2) %></td>
+    <td>$<%= ((salary * 0.062) / 12).round(2) %></td>
+    <td>$<%= (salary * 0.062).round(2) %></td>
   </tr>
 
   <tr>
     <td>Medicare</td>
-    <td>$<%= (medicare / 365).round(2) %></td>
-    <td>$<%= (medicare / 52).round(2) %></td>
-    <td>$<%= (medicare / 26).round(2) %></td>
-    <td>$<%= (medicare / 12).round(2) %></td>
-    <td>$<%= medicare.round(2) %></td>
+    <td>$<%= ((salary * 0.0145) / 365).round(2) %></td>
+    <td>$<%= ((salary * 0.0145) / 52).round(2) %></td>
+    <td>$<%= ((salary * 0.0145) / 26).round(2) %></td>
+    <td>$<%= ((salary * 0.0145) / 12).round(2) %></td>
+    <td>$<%= (salary * 0.0145).round(2) %></td>
   </tr>
 
   <tr>
     <td>Disability</td>
-    <td>$<%= (disability / 365).round(2) %></td>
-    <td>$<%= (disability / 52).round(2) %></td>
-    <td>$<%= (disability / 26).round(2) %></td>
-    <td>$<%= (disability / 12).round(2) %></td>
-    <td>$<%= disability.round(2) %></td>
+    <td>$<%= ((salary * 0.011) / 365).round(2) %></td>
+    <td>$<%= ((salary * 0.011) / 52).round(2) %></td>
+    <td>$<%= ((salary * 0.011) / 26).round(2) %></td>
+    <td>$<%= ((salary * 0.011) / 12).round(2) %></td>
+    <td>$<%= (salary * 0.011).round(2) %></td>
   </tr>
+  <% end  %>
 </table>
 
-<p>
+  <p>
   <%= link_to 'Master Overview', master_path %>
-</p>
+  </p>
 
-<p>
+  <p>
   <%= link_to 'Home', root_path %>
-</p>
+  </p>
 
-<p>
-  <%= link_to "Update Expenses", edit_tax_path(Tax.last) if Tax.count > 0%>
-</p>
+  <p>
+  <%= link_to "Update Expenses", edit_tax_path(current_user)%>
+  </p>

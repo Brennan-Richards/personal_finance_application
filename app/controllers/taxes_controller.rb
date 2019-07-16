@@ -1,7 +1,8 @@
 class TaxesController < ApplicationController
 
   def index
-    @taxes = Tax.all
+    @user = current_user
+    @taxes = @user.tax
 
     if Tax.count == 0
       redirect_to new_tax_path
@@ -58,7 +59,7 @@ class TaxesController < ApplicationController
 
 private
   def tax_params
-    params.require(:tax).permit(:salary, :dependents, :selfemployed, :fincome, :sincome)
+    params.require(:tax).permit(:salary, :fincome, :sincome)
   end
 
 end

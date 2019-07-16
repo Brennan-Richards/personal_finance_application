@@ -30,7 +30,7 @@
 </p>
 
 <p>
-<%= link_to "Update Expenses", edit_foodexp_path(Foodexp.last) if Foodexp.count > 0 %>
+<%= link_to "Update Expenses", edit_foodexp_path(current_user)%>
 </p>
 
 <p>

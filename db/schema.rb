@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_16_115606) do
+ActiveRecord::Schema.define(version: 2019_07_16_123735) do
 
   create_table "carexps", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -63,6 +63,7 @@ ActiveRecord::Schema.define(version: 2019_07_16_115606) do
     t.decimal "disability", precision: 11, scale: 2
     t.decimal "socialsecurity", precision: 11, scale: 2
     t.integer "user_id"
+    t.integer "salary"
     t.index ["user_id"], name: "index_taxes_on_user_id"
   end
 

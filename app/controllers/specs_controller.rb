@@ -1,8 +1,5 @@
 class SpecsController < ApplicationController
 
-  def index
-    @spec = Spec.new
-  end
 
   def _new
 
@@ -19,6 +16,34 @@ class SpecsController < ApplicationController
         redirect_to master_path
       else
         redirect_to master_path
+      end
+  end
+
+  def edit
+
+      @spec = Spec.last
+
+      if Spec.count == 0
+        redirect_to new_spec_path
+      else
+        render 'edit'
+      end
+
+  end
+
+  def update
+      @spec = Spec.last
+
+      if @spec.update(spec_params)
+
+        flash[:notice] = "Salary successfully updated."
+
+        redirect_to master_path
+
+      else
+
+        render 'edit'
+
       end
   end
 

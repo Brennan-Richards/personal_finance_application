@@ -1,8 +1,8 @@
 class HousingexpsController < ApplicationController
 
   def index
-    @housingexps = Housingexp.all
-
+    @user = current_user
+    @housingexps = @user.housingexp
 
     if Housingexp.count == 0
       redirect_to new_housingexp_path
@@ -44,7 +44,7 @@ class HousingexpsController < ApplicationController
 
     if @housingexp.update(housingexp_params)
 
-      flash[:notice] = "Article was successfully updated"
+      flash[:notice] = "Housing expenses were successfully updated"
 
       redirect_to housingexps_path
 

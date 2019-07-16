@@ -1,7 +1,9 @@
 class CarexpsController < ApplicationController
 
   def index
-    @carexps = Carexp.all
+    @user = current_user
+    @carexps = @user.carexp
+
 
     if Carexp.count == 0
       redirect_to new_carexp_path
