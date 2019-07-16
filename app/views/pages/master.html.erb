@@ -19,7 +19,7 @@
     </tr>
 
     <% if @user.spec.nil? %>
-      <h2>No salary added.</h2><% link_to "Add salary", new_spec_path %>
+      <h2>No salary added.</h2><%= link_to "Add salary", new_spec_path %>
     <% else %>
       <h2>Your salary is: <%= @user.spec.salary %></h2><%= link_to "Change salary", edit_spec_path(current_user) %>
     <% end %>
