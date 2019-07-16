@@ -12,12 +12,13 @@ class SpecsController < ApplicationController
 
   def create
       @spec = Spec.new(spec_params)
+      @spec.user = current_user
 
       if @spec.save
         flash[:notice] = "Salary & pay period successfully added"
         redirect_to master_path
       else
-        render 'pages/master'
+        redirect_to master_path
       end
   end
 

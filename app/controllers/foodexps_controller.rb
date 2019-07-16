@@ -16,6 +16,7 @@ class FoodexpsController < ApplicationController
 
   def create
     @foodexp = Foodexp.new(foodexp_params)
+    @foodexp.user = current_user
 
     if @foodexp.save
       flash[:notice] = "Food expenses successfully added"

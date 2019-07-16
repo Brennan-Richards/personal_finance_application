@@ -3,6 +3,7 @@ class HousingexpsController < ApplicationController
   def index
     @housingexps = Housingexp.all
 
+
     if Housingexp.count == 0
       redirect_to new_housingexp_path
     else
@@ -16,6 +17,7 @@ class HousingexpsController < ApplicationController
 
   def create
     @housingexp = Housingexp.new(housingexp_params)
+    @housingexp.user = current_user
 
     if @housingexp.save
       flash[:notice] = "Housing expenses successfully added"

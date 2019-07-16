@@ -16,6 +16,7 @@ class CarexpsController < ApplicationController
 
   def create
     @carexp = Carexp.new(carexp_params)
+    @carexp.user = current_user
 
     if @carexp.save
       flash[:notice] = "Car expenses successfully added"

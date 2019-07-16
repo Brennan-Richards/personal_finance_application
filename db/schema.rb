@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_16_101634) do
+ActiveRecord::Schema.define(version: 2019_07_16_115606) do
 
   create_table "carexps", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -20,12 +20,16 @@ ActiveRecord::Schema.define(version: 2019_07_16_101634) do
     t.decimal "insurance", precision: 11, scale: 2
     t.decimal "taxes", precision: 11, scale: 2
     t.decimal "payment", precision: 11, scale: 2
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_carexps_on_user_id"
   end
 
   create_table "foodexps", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.decimal "monthlyfood", precision: 11, scale: 2
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_foodexps_on_user_id"
   end
 
   create_table "housingexps", force: :cascade do |t|
@@ -37,6 +41,8 @@ ActiveRecord::Schema.define(version: 2019_07_16_101634) do
     t.decimal "heating", precision: 11, scale: 2
     t.decimal "water", precision: 11, scale: 2
     t.decimal "entertainment", precision: 11, scale: 2
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_housingexps_on_user_id"
   end
 
   create_table "specs", force: :cascade do |t|
@@ -44,6 +50,8 @@ ActiveRecord::Schema.define(version: 2019_07_16_101634) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "salary"
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_specs_on_user_id"
   end
 
   create_table "taxes", force: :cascade do |t|
@@ -54,6 +62,8 @@ ActiveRecord::Schema.define(version: 2019_07_16_101634) do
     t.decimal "medicare", precision: 11, scale: 2
     t.decimal "disability", precision: 11, scale: 2
     t.decimal "socialsecurity", precision: 11, scale: 2
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_taxes_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -64,8 +74,18 @@ ActiveRecord::Schema.define(version: 2019_07_16_101634) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "carexp_id"
+    t.integer "housingexp_id"
+    t.integer "foodexp_id"
+    t.integer "tax_id"
+    t.integer "spec_id"
+    t.index ["carexp_id"], name: "index_users_on_carexp_id"
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["foodexp_id"], name: "index_users_on_foodexp_id"
+    t.index ["housingexp_id"], name: "index_users_on_housingexp_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["spec_id"], name: "index_users_on_spec_id"
+    t.index ["tax_id"], name: "index_users_on_tax_id"
   end
 
 end

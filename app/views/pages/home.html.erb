@@ -4,21 +4,16 @@
 <br>
 <br>
 
-
-<p>
-  <%= link_to "Sign up", new_user_registration_path %>
-</p>
-
+<% if current_user  %>
 <p>
   <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
 </p>
+ <% else  %>
+ <p>
+   <%= link_to "Sign up", new_user_registration_path %>
+ </p>
 
 <p>
   <%= link_to "Sign in", new_user_session_path %>
 </p>
-
-<%= link_to "Cars Module", carexps_path %><br>
-<%= link_to "Housing Module", housingexps_path %><br>
-<%= link_to "Taxes Module", taxes_path %><br>
-<%= link_to "Food Module", foodexps_path %><br>
-<%= link_to "View All Expenses", master_path %>
+<% end %>

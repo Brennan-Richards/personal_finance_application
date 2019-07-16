@@ -16,6 +16,7 @@ class TaxesController < ApplicationController
 
   def create
     @tax = Tax.new(tax_params)
+    @tax.user = current_user
 
     if @tax.save
       flash[:notice] = "Tax expenses successfully added"
