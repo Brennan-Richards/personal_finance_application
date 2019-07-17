@@ -1,7 +1,6 @@
 class SpecsController < ApplicationController
 
-
-  def _new
+  def new
 
     @spec = Spec.new
 

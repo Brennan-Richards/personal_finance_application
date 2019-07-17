@@ -36,27 +36,35 @@
     <td>$<%= fincome.round(2) %></td>
   </tr>
 
-<% if @user.spec.nil?%>
+<% if @user.spec.nil? %>
+
+<tr>
   <td>Social Security</td>
   <td>Salary not added. Add salary to calculate Social Security. <%= link_to 'Add Salary', new_spec_path %></td>
   <td></td>
   <td></td>
   <td></td>
   <td></td>
+</tr>
 
+<tr>
   <td>Medicare</td>
   <td>Salary not added. Add salary to calculate Medicare. <%= link_to 'Add Salary', new_spec_path %></td>
   <td></td>
   <td></td>
   <td></td>
   <td></td>
+</tr>
 
+<tr>
   <td>Disability</td>
   <td>Salary not added. Add salary to calculate Disability. <%= link_to 'Add Salary', new_spec_path %></td>
   <td></td>
   <td></td>
   <td></td>
   <td></td>
+</tr>
+
 <% else  %>
   <tr>
     <td>Social Security</td>
