@@ -1,4 +1,4 @@
-@user.housingexp<div class="variables">
+<div class="variables">
   <% totalexpenses = 0 %>
 </div>
 
@@ -7,6 +7,12 @@
 <br><br>
 
 <h2>Your account: <%= @user.email %></h2>
+
+<% if @user.spec.nil? %>
+  <h2>No salary added.</h2><%= link_to "Add salary", new_spec_path %>
+<% else %>
+  <h2>Your salary is: <%= @user.spec.salary %></h2><%= link_to "Change salary", edit_spec_path(current_user) %>
+<% end %>
 
 <table>
     <tr>
@@ -17,12 +23,6 @@
       <th>Monthly</th>
       <th>Yearly</th>
     </tr>
-
-    <% if @user.spec.nil? %>
-      <h2>No salary added.</h2><%= link_to "Add salary", new_spec_path %>
-    <% else %>
-      <h2>Your salary is: <%= @user.spec.salary %></h2><%= link_to "Change salary", edit_spec_path(current_user) %>
-    <% end %>
 
     <tr id="housing">
       <% if @user.housingexp.nil? %>
@@ -109,6 +109,15 @@
 
         <td>Taxes</td>
         <td>Tax information not added. <%= link_to 'Add Expenses', new_tax_path %></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+
+      <% elsif @user.spec.nil? %>
+
+        <td>Taxes</td>
+        <td>Salary needed to calculate taxes. <%= link_to 'Add Salary', new_spec_path %></td>
         <td></td>
         <td></td>
         <td></td>
