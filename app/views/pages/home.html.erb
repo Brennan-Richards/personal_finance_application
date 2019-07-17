@@ -1,19 +1,24 @@
-<h1> Hello and welcome to the finances application home page. </h1>
+<div class="container">
 
-<h2>Create users branch.</h2>
-<br>
-<br>
+  <h4 align="center" id="logo">Finance Tracker</h4>
 
-<% if current_user  %>
-<p>
-  <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
-</p>
- <% else  %>
- <p>
-   <%= link_to "Sign up", new_user_registration_path %>
- </p>
+  <% if current_user  %>
 
-<p>
-  <%= link_to "Sign in", new_user_session_path %>
-</p>
-<% end %>
+  <div class="col-lg-6 col-offset-3">
+    <%= link_to "Sign out", destroy_user_session_path, method: :delete,class: 'btn btn-secondary btn-block'  %>
+  </div>
+
+  <% else %>
+
+    <div class="col-lg-6 col-offset-3">
+      <%= link_to "Sign up", new_user_registration_path, class: "btn btn-lg btn-success btn-block" %>
+
+      <br>
+
+      <%= link_to "Sign in", new_user_session_path, class: "btn btn-lg btn-primary btn-block" %>
+    </div>
+
+  <% end %>
+
+
+</div>

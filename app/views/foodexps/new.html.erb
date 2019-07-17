@@ -1,4 +1,4 @@
-<h1>Add your food expenses.</h1>
+<h2 class="title">Add your food expenses.</h2>
 
 <% if @foodexp.errors.any? %>
 
@@ -16,26 +16,24 @@
 
 <% end %>
 
-<%= form_for @foodexp do |f| %>
+<div class="container">
 
-  <div class="newfood">
+    <%= form_for @foodexp do |f| %>
 
-    <p>
+    <div class="form-group">
+      <div class="field">
+        <div class="newfood">
 
-      <h3>Monthly</h3>
-      <%= f.label :monthlyfood, "Monthly Grocery Costs" %>
-      <%= f.text_field :monthlyfood %>
+            <h3>Monthly</h3>
+            <%= f.label :monthlyfood, "Monthly Grocery Costs" %>
+            <%= f.text_field :monthlyfood %>
 
-    </p>
+        </div>
+      </div>
+    </div>
 
-  </div>
+    <%= f.submit "Add Food Expenses", class: "btn btn-primary form-control" %>
 
-<%= f.submit %>
+    <% end %>
 
-<% end %>
-
-<%= link_to 'Overview of Food Expenses', foodexps_path %> |
-<%= link_to 'View all expenses', master_path %>
-<p>
-<%= link_to "Update Expenses", edit_foodexp_path(current_user) %>
-</p>
+</div>

@@ -11,15 +11,11 @@
 
   <body>
 
-      <% flash.each do |name, msg| %>
+    <h1 id="logo">Finance Tracker</h1>
 
-          <ul>
+    <%= render 'layouts/alerts' %>
+    <%= render 'layouts/messages' %>
 
-            <li><%= msg %></li>
-
-          </ul>
-
-      <% end %>
     <%= yield %>
   </body>
 </html>

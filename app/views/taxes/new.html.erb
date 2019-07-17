@@ -1,4 +1,4 @@
-<h1>Fill out the form below to generate your tax expenses.</h1>
+<h2 class="title">Complete the form to generate tax expenses.</h2>
 
 <% if @tax.errors.any? %>
 
@@ -16,27 +16,43 @@
 
 <% end %>
 
-<%= form_for @tax do |f| %>
 
+<div class="container">
 
-<h3>Yearly</h3>
+    <%= form_for @tax do |f| %>
 
+    <h3>Yearly</h3>
+
+    <div class="form-group">
+      <div class="field">
+        <%= f.label :sincome, "State Income Tax" %>
+        <%= f.text_field :sincome %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="field">
+        <%= f.label :fincome, "Federal Income Tax" %>
+        <%= f.text_field :fincome %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="field">
+        <%= f.label :fincome, "Federal Income Tax" %>
+        <%= f.text_field :fincome %>
+      </div>
+    </div>
+
+    <%= f.submit "Submit Tax Information", class: "btn btn-primary form-control" %>
+
+    <% end %>
 <p>
-  <%= f.label :sincome, "State Income Tax" %>
-  <%= f.text_field :sincome %>
+    <%= link_to "Taxes Overview", taxes_path %>
 </p>
 
 <p>
-  <%= f.label :fincome, "Federal Income Tax" %>
-  <%= f.text_field :fincome %>
+    <%= link_to "Master", master_path %>
 </p>
 
-
-<%= f.submit %>
-
-<%= link_to "Taxes Overview", taxes_path %>
-<p>
-<%= link_to "Update Expenses", edit_tax_path(current_user)%>
-</p>
-
-<% end %>
+</div>

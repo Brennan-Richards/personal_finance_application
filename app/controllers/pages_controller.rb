@@ -1,6 +1,7 @@
 class PagesController < ApplicationController
   def home
     @tax = Tax.new
+    
     if current_user
       redirect_to master_path
     end
