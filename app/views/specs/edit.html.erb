@@ -1,17 +1,5 @@
-<% if @spec.errors.any? %>
+<h2 class="title">Update your salary.</h2>
 
-  <h2>The following errors prevented the article from getting created</h2>
-
-    <ul>
-
-      <% @spec.errors.full_messages.each do |msg| %>
-
-        <li><%= msg %></li>
-
-      <% end %>
-
-    </ul>
-
-<% end %>
+<%= render 'shared/errors', obj: @spec %>
 
 <%= render 'forms/spec' %>

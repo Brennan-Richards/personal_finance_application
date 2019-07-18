@@ -4,7 +4,7 @@
 </div>
 <% end %>
 
-<h1> Overview of your food expenses. </h1>
+<h2 class="title"> Overview of your food expenses. </h2>
 
 <table class="table">
 <tr>
@@ -17,7 +17,7 @@
 </tr>
 
 <tr id="monthlyfood">
-  <td>Monthly Food Costs</td>
+  <td class="index_total">Monthly Food Costs</td>
   <td>$<%= (monthlyfood / 365).round(2) %></td>
   <td>$<%= (monthlyfood / 52).round(2) %></td>
   <td>$<%= (monthlyfood / 26).round(2) %></td>
@@ -27,14 +27,4 @@
 
 </table>
 
-<p>
-  <%= link_to "Master Expenses Sheet", master_path %>
-</p>
-
-<p>
-<%= link_to "Update Expenses", edit_foodexp_path(current_user)%>
-</p>
-
-<p>
-  <%= link_to "Home", root_path %>
-</p>
+<%= link_to "Update Expenses", edit_foodexp_path(current_user), class: 'btn btn-secondary'%>

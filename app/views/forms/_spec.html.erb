@@ -1,14 +1,19 @@
-<%= form_for @spec do |f| %>
+<div class="row">
+  <div class="col-sm-6 offset-sm-3 form">
 
-<h3>What is your yearly salary?</h3>
+    <%= form_for @spec do |f| %>
 
-<div class="form-group">
-  <div class="field">
-    <%= f.label :salary %>
-    <%= f.text_field :salary %>
+    <h3>What is your yearly salary?</h3>
+
+    <div class="form-group">
+      <div class="field">
+        <%= f.label :salary %>
+        <%= f.text_field :salary %>
+      </div>
+    </div>
+
+    <%= f.submit "Add/Update Salary", class: "btn btn-primary form-control" %>
+
+    <% end %>
   </div>
 </div>
-
-<%= f.submit "Add/Update Salary", class: "btn btn-primary form-control" %>
-
-<% end %>

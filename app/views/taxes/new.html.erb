@@ -1,27 +1,4 @@
 <h2 class="title">Complete the form to generate tax expenses.</h2>
 
-<% if @tax.errors.any? %>
-
-  <h2>The following errors prevented the article from getting created</h2>
-
-    <ul>
-
-      <% @tax.errors.full_messages.each do |msg| %>
-
-        <li><%= msg %></li>
-
-      <% end %>
-
-    </ul>
-
-<% end %>
-
+<%= render 'shared/errors', obj: @tax %>
 <%= render 'forms/tax' %>
-
-<p>
-    <%= link_to "Taxes Overview", taxes_path %>
-</p>
-
-<p>
-    <%= link_to "Master", master_path %>
-</p>

@@ -1,49 +1,54 @@
-<%= form_for @housingexp do |f| %>
+<div class="row">
+  <div class="col-sm-6 offset-sm-3 form">
 
-<h3>Monthly</h3>
+    <%= form_for @housingexp do |f| %>
 
-<div class="form-group">
-  <div class="field">
-    <%= f.label :mortgage %><br>
-    <%= f.text_field :mortgage  %> <br>
+    <h3>Monthly</h3>
+
+    <div class="form-group">
+      <div class="field">
+        <%= f.label :mortgage %><br>
+        <%= f.text_field :mortgage  %> <br>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="field">
+        <%= f.label :electricity %><br>
+        <%= f.text_field :electricity  %> <br>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="field">
+        <%= f.label :water %><br>
+        <%= f.text_field :water  %> <br>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="field">
+        <%= f.label :heating %><br>
+        <%= f.text_field :heating  %> <br>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="field">
+        <%= f.label :entertainment %><br>
+        <%= f.text_field :entertainment  %> <br>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="field">
+        <%= f.label :propertytax %><br>
+        <%= f.text_field :propertytax  %> <br>
+      </div>
+    </div>
+
+    <%= f.submit "Add/Update Housing Expenses", class: "btn btn-primary form-control" %>
+
+    <% end %>
   </div>
 </div>
-
-<div class="form-group">
-  <div class="field">
-    <%= f.label :electricity %><br>
-    <%= f.text_field :electricity  %> <br>
-  </div>
-</div>
-
-<div class="form-group">
-  <div class="field">
-    <%= f.label :water %><br>
-    <%= f.text_field :water  %> <br>
-  </div>
-</div>
-
-<div class="form-group">
-  <div class="field">
-    <%= f.label :heating %><br>
-    <%= f.text_field :heating  %> <br>
-  </div>
-</div>
-
-<div class="form-group">
-  <div class="field">
-    <%= f.label :entertainment %><br>
-    <%= f.text_field :entertainment  %> <br>
-  </div>
-</div>
-
-<div class="form-group">
-  <div class="field">
-    <%= f.label :propertytax %><br>
-    <%= f.text_field :propertytax  %> <br>
-  </div>
-</div>
-
-<%= f.submit "Add/Update Food Expenses", class: "btn btn-primary form-control" %>
-
-<% end %>

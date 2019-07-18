@@ -4,7 +4,9 @@
 
 <h2 class="title"> This is the Master Overview page: </h2>
 
-<small id="account">Your account: <%= @user.email %><small>
+<p id="account">Your account: <%= @user.email %></p> |
+<%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+
 
 <table class="table">
     <tr>
@@ -145,7 +147,7 @@
   <tr>
     <% if !(@user.spec.nil?) %>
       <% remaining = @user.spec.salary - totalexpenses %>
-      <td>Remaining Income</td>
+      <td><strong>Funds Remaining</strong></td>
       <td>$<%= (remaining / 365).round(2) %></td>
       <td>$<%= (remaining / 52).round(2) %></td>
       <td>$<%= (remaining / 26).round(2) %></td>
@@ -155,24 +157,21 @@
   </tr>
 </table>
 
-<div class="salary">
-
+<div class="row" id="salary">
     <% if @user.spec.nil? %>
+    <div class="col-sm-6 offset-sm-2">
       <h2 align="center">No salary added.</h2>
-
-      <div class="row">
-        <div class="col">
-          <%= link_to "Add salary", new_spec_path, class: "btn btn-warning form-control" %>
-        </div>
-      </div>
+    </div>
+    <div class="col-sm-4">
+      <%= link_to "Add salary", new_spec_path, class: "btn btn-warning" %>
+    </div>
     <% else %>
-      <div class="row">
-        <div class="col-sm-6 offset-sm-3">
-          <h2>Your salary is: <%= @user.spec.salary %></h2><%= link_to "Change salary", edit_spec_path(current_user) %>
+        <div class="col-sm-6 offset-sm-2">
+          <h2>Your salary is: $<%= @user.spec.salary %></h2>
         </div>
-      </div>
+
+        <div class="col-sm-4">
+          <%= link_to "Change salary", edit_spec_path(current_user), class: 'btn btn-sm btn-secondary' %>
+        </div>
     <% end %>
-
 </div>
-
-<%= link_to "Sign out", destroy_user_session_path, method: :delete %>

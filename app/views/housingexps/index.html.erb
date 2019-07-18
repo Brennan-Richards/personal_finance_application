@@ -11,7 +11,7 @@
     <% end %>
   </div>
 
-<h1>View your expenses for the housing module below: </h1>
+<h2 class="title">View your expenses for the housing module below: </h2>
 
 <table class="table">
 <tr>
@@ -51,7 +51,7 @@
 </tr>
 
 <tr id="housing_totals">
-  <td>Total House Expenses</td>
+  <td class="index_total">Total House Expenses</td>
   <td>$<%= ((mortgage + utilities + propertytax) / 365).round(2) %></td>
   <td>$<%= ((mortgage + utilities + propertytax) / 52).round(2) %></td>
   <td>$<%= ((mortgage + utilities + propertytax) / 26).round(2) %></td>
@@ -61,18 +61,4 @@
 
 </table>
 
-<p>
-  <%= link_to "Add Expenses", new_housingexp_path %>
-</p>
-
-<p>
-  <%= link_to "Master Expenses Sheet", master_path %>
-</p>
-
-<p>
-  <%= link_to "Home", root_path %>
-</p>
-
-<p>
-<%= link_to "Update Expenses", edit_housingexp_path(current_user)%>
-</p>
+<%= link_to "Update Expenses", edit_housingexp_path(current_user), class: "btn btn-secondary"%>

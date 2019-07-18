@@ -1,23 +1,5 @@
 <h2 class="title">Add your food expenses.</h2>
 
-<% if @housingexp.errors.any? %>
+<%= render 'shared/errors', obj: @housingexp %>
 
-  <h2>The following errors prevented the article from getting created</h2>
-
-    <ul>
-
-      <% @housingexp.errors.full_messages.each do |msg| %>
-
-        <li><%= msg %></li>
-
-      <% end %>
-
-    </ul>
-
-<% end %>
-
-<%= render 'layouts/housing' %>
-
-    <%= link_to "View All Housing Expenses", housingexps_path %> |
-    <%= link_to "View Master Expense Sheet", master_path %> |
-    <%= link_to "Update Expenses", edit_housingexp_path(current_user)%>
+<%= render 'forms/housing' %>

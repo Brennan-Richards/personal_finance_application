@@ -1,6 +1,3 @@
-@import "bootstrap-sprockets";
-@import "bootstrap";
-
 .variables {
   display: none;
 }
@@ -11,12 +8,45 @@ table {
 
 }
 
-#salary {
+.errors {
+
+  margin: 5px;
+
+}
+
+.form{
+
+  margin: 40px;
+
+}
+
+.icon {
+
+  width: 100px;
+
+}
+
+.btn {
 
   margin: 10px;
+
+}
+
+.index_total {
+
+  font-weight: bold;
+
+}
+
+#salary {
+
+  margin: 30px;
   font-size: 20px;
   font-weight: bold;
   font-family: sans-serif;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 2px;
 
 }
 
@@ -37,6 +67,12 @@ table {
 .title {
   text-align: center;
   color: #AEAEAE;
-  hover: #eaeaea;
+  margin-bottom: 50px;
+
+}
+
+#account {
+
+  display: inline;
 
 }

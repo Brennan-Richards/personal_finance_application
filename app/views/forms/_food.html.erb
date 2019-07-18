@@ -1,18 +1,22 @@
-<%= form_for @foodexp do |f| %>
+<div class="row">
+  <div class="col-sm-6 offset-sm-3 form">
+    <%= form_for @foodexp do |f| %>
 
-<h3>Monthly</h3>
+    <h3>Monthly</h3>
 
-<div class="form-group">
-  <div class="field">
-    <div class="newfood">
+    <div class="form-group">
+      <div class="field">
+        <div class="newfood">
 
-        <%= f.label :monthlyfood, "Monthly Grocery Costs" %>
-        <%= f.text_field :monthlyfood %>
+            <%= f.label :monthlyfood, "Monthly Grocery Costs" %>
+            <%= f.text_field :monthlyfood %>
 
+        </div>
+      </div>
     </div>
+
+    <%= f.submit "Add/Update Food Expenses", class: "btn btn-primary form-control" %>
+
+    <% end %>
   </div>
 </div>
-
-<%= f.submit "Add/Update Food Expenses", class: "btn btn-primary form-control" %>
-
-<% end %>

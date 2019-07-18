@@ -1,22 +1,5 @@
-<h1>Add your food expenses.</h1>
+<h1>Update your food expenses.</h1>
 
-<% if @foodexp.errors.any? %>
-
-  <h2>The following errors prevented the article from getting created</h2>
-
-    <ul>
-
-      <% @foodexp.errors.full_messages.each do |msg| %>
-
-        <li><%= msg %></li>
-
-      <% end %>
-
-    </ul>
-
-<% end %>
+<%= render 'shared/errors', obj: @foodexp %>
 
 <%= render 'forms/food' %>
-
-<%= link_to 'Overview of Food Expenses', foodexps_path %> |
-<%= link_to 'View all expenses', master_path %>

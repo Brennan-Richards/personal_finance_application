@@ -10,7 +10,7 @@
 </div>
 
 
-<h1>Overview of your car expenses.</h1>
+<h2 class="title">Overview of your car expenses.</h2>
 
 <table class="table">
 <tr>
@@ -68,7 +68,7 @@
 </tr>
 
 <tr id="car_totals">
-  <td>Total Car Expenses</td>
+  <td class="index_total">Total Car Expenses</td>
   <td>$<%= (total / 365).round(2) %></td>
   <td>$<%= (total / 52).round(2) %></td>
   <td>$<%= (total / 26).round(2) %></td>
@@ -78,14 +78,4 @@
 
 </table>
 
-<p>
-<%= link_to "Add Expenses", new_carexp_path %>
-</p>
-
-<p>
-<%= link_to "Update Expenses", edit_carexp_path(current_user)%>
-</p>
-
-<p>
-<%= link_to "Home", root_path %>
-</p>
+<%= link_to "Update Expenses", edit_carexp_path(current_user), class: 'btn btn-secondary'%>

@@ -1,0 +1,21 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+  <%= link_to "Finance Tracker", root_path, class: 'navbar-brand', id: 'logo' %>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <%= link_to "Housing", housingexps_path, class: "nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "Vehicle", carexps_path, class: "nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "Food", foodexps_path, class: "nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "Taxes", taxes_path, class: "nav-link" %>
+      </li>
+    </ul>
+  </div>
+</nav>

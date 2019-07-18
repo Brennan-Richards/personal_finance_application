@@ -12,14 +12,14 @@
   <body>
 
     <div class="container">
+      <% if current_user %>
       <%= render 'layouts/navbar' %>
-      
-      <h1 id="logo">Finance Tracker</h1>
+      <% end %>
 
-      <%= render 'layouts/alerts' %>
-      <%= render 'layouts/messages' %>
+      <%= render 'shared/devisealerts' %>
 
       <%= yield %>
     </div>
+
   </body>
 </html>

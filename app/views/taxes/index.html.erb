@@ -1,12 +1,13 @@
-<h1>Overview of your income taxes. </h1>
-
 <div class="variables">
   <% sincome = @user.tax.sincome  %>
   <% fincome = @user.tax.fincome %>
   <% if !(@user.spec.nil?)%>
    <% salary = @user.spec.salary %>
   <% end  %>
+  <% total = fincome + sincome + (salary * 0.062)  + (salary * 0.0145) + (salary * 0.011)  %>
 </div>
+
+<h2 class="title">Overview of your income taxes. </h2>
 
 <table class="table">
   <tr>
@@ -92,17 +93,16 @@
     <td>$<%= ((salary * 0.011) / 12).round(2) %></td>
     <td>$<%= (salary * 0.011).round(2) %></td>
   </tr>
+
+  <tr id="tax_totals">
+    <td class="index_total">Total House Expenses</td>
+    <td>$<%= (total / 365).round(2) %></td>
+    <td>$<%= (total / 52).round(2) %></td>
+    <td>$<%= (total / 26).round(2) %></td>
+    <td>$<%= (total / 12).round(2) %></td>
+    <td>$<%= (total).round(2) %></td>
+  </tr>
   <% end  %>
 </table>
 
-  <p>
-  <%= link_to 'Master Overview', master_path %>
-  </p>
-
-  <p>
-  <%= link_to 'Home', root_path %>
-  </p>
-
-  <p>
-  <%= link_to "Update Expenses", edit_tax_path(current_user)%>
-  </p>
+  <%= link_to "Update Expenses", edit_tax_path(current_user), class: "btn btn-secondary"%>

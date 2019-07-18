@@ -1,0 +1,12 @@
+<% if !(notice.nil?) || !(alert.nil?) %>
+  <div class="row errors">
+    <div class="col-sm-6 offset-sm-3">
+      <div class="alert alert-info alert-dismissible fade show" role="alert">
+
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
+
+      </div>
+    </div>
+  </div>
+<% end %>
