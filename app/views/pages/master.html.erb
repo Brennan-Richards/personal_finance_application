@@ -2,18 +2,10 @@
   <% totalexpenses = 0 %>
 </div>
 
-<h1 id="logo">Finance Tracker</h1>
+<h2 class="title"> This is the Master Overview page: </h2>
 
-<h2 class="title"> This is the Master Overview page: </h1>
-
-<br><br>
-
-
-
-
-
-<div class="container">
 <small id="account">Your account: <%= @user.email %><small>
+
 <table class="table">
     <tr>
       <th></th>
@@ -165,20 +157,22 @@
 
 <div class="salary">
 
-      <% if @user.spec.nil? %>
-        <h2 align="center">No salary added.</h2>
+    <% if @user.spec.nil? %>
+      <h2 align="center">No salary added.</h2>
 
-    <div class="row">
-      <div class="col">
-        <%= link_to "Add salary", new_spec_path, class: "btn btn-warning form-control" %>
+      <div class="row">
+        <div class="col">
+          <%= link_to "Add salary", new_spec_path, class: "btn btn-warning form-control" %>
+        </div>
       </div>
-    </div>
-
     <% else %>
-      <h2>Your salary is: <%= @user.spec.salary %></h2><%= link_to "Change salary", edit_spec_path(current_user) %>
+      <div class="row">
+        <div class="col-sm-6 offset-sm-3">
+          <h2>Your salary is: <%= @user.spec.salary %></h2><%= link_to "Change salary", edit_spec_path(current_user) %>
+        </div>
+      </div>
     <% end %>
 
 </div>
 
-</div>
 <%= link_to "Sign out", destroy_user_session_path, method: :delete %>

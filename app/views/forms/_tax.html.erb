@@ -1,0 +1,28 @@
+<%= form_for @tax do |f| %>
+
+<h3>Yearly</h3>
+
+<div class="form-group">
+  <div class="field">
+    <%= f.label :sincome, "State Income Tax" %>
+    <%= f.text_field :sincome %>
+  </div>
+</div>
+
+<div class="form-group">
+  <div class="field">
+    <%= f.label :fincome, "Federal Income Tax" %>
+    <%= f.text_field :fincome %>
+  </div>
+</div>
+
+<div class="form-group">
+  <div class="field">
+    <%= f.label :fincome, "Federal Income Tax" %>
+    <%= f.text_field :fincome %>
+  </div>
+</div>
+
+<%= f.submit "Submit/Update Tax Information", class: "btn btn-primary form-control" %>
+
+<% end %>

@@ -16,24 +16,4 @@
 
 <% end %>
 
-<div class="container">
-
-    <%= form_for @foodexp do |f| %>
-
-    <div class="form-group">
-      <div class="field">
-        <div class="newfood">
-
-            <h3>Monthly</h3>
-            <%= f.label :monthlyfood, "Monthly Grocery Costs" %>
-            <%= f.text_field :monthlyfood %>
-
-        </div>
-      </div>
-    </div>
-
-    <%= f.submit "Add Food Expenses", class: "btn btn-primary form-control" %>
-
-    <% end %>
-
-</div>
+<%= render 'forms/food' %>

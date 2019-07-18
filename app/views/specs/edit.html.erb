@@ -14,13 +14,4 @@
 
 <% end %>
 
-<%= form_for @spec do |f|%>
-
-<h3>What is your yearly salary?</h3>
-
-<%= f.label :salary %>
-<%= f.text_field :salary %>
-
-<%= f.submit %>
-
-<% end %>
+<%= render 'forms/spec' %>

@@ -1,9 +1,6 @@
 <h1 id="logo">Finance Tracker</h1>
 <h2 align="center" class="title">Log in</h2>
 
-
-<div class="container">
-
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
 
@@ -37,5 +34,3 @@
     <% end %>
 
     <small><%= render "devise/shared/links" %></small>
-
-</div>

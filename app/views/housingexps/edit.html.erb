@@ -19,37 +19,7 @@
 
     <% end %>
 
-<%= form_for @housingexp do |f| %>
-
-  <div>
-
-    <h3>Monthly</h3>
-      <%= f.label :mortgage %><br>
-      <%= f.text_field :mortgage  %> <br>
-
-      <%= f.label :electricity %><br>
-      <%= f.text_field :electricity  %> <br>
-
-      <%= f.label :water %><br>
-      <%= f.text_field :water  %> <br>
-
-      <%= f.label :heating %><br>
-      <%= f.text_field :heating  %> <br>
-
-      <%= f.label :entertainment %><br>
-      <%= f.text_field :entertainment  %> <br>
-
-    <h3>Yearly</h3>
-
-      <%= f.label :propertytax %><br>
-      <%= f.text_field :propertytax  %> <br>
-
-    <%= f.submit %>
-
-  </div>
-
-
-<% end %>
+<%= render 'layouts/housing' %>
 
 <%= link_to "View All Housing Expenses", housingexps_path %> <br>
 <%= link_to "View Master Expense Sheet", master_path %>

@@ -1,24 +1,23 @@
-<div class="container">
-
-  <h4 align="center" id="logo">Finance Tracker</h4>
-
   <% if current_user  %>
 
-  <div class="col-lg-6 col-offset-3">
-    <%= link_to "Sign out", destroy_user_session_path, method: :delete,class: 'btn btn-secondary btn-block'  %>
-  </div>
+    <div class="row">
+      <div class="col-lg-6">
+        <%= link_to "Sign out", destroy_user_session_path, method: :delete,class: 'btn btn-secondary btn-block'  %>
+      </div>
+    </div>
 
   <% else %>
 
-    <div class="col-lg-6 col-offset-3">
-      <%= link_to "Sign up", new_user_registration_path, class: "btn btn-lg btn-success btn-block" %>
+<div class="row">
+  <div class="col-sm-6 offset-sm-3">
+    <%= link_to "Sign up", new_user_registration_path, class: "btn btn-lg btn-success btn-block" %>
+  </div>
+</div>
 
-      <br>
-
-      <%= link_to "Sign in", new_user_session_path, class: "btn btn-lg btn-primary btn-block" %>
-    </div>
+<div class="row">
+  <div class="col-sm-6 offset-sm-3">
+    <%= link_to "Sign in", new_user_session_path, class: "btn btn-lg btn-primary btn-block" %>
+  </div>
+</div>
 
   <% end %>
-
-
-</div>

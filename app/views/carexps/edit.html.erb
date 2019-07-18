@@ -14,38 +14,16 @@
 
 <% end %>
 
-<%= form_for @carexp do |f| %>
+<%= render 'forms/car' %>
 
+<p>
+<%= link_to "View Car Expenses", carexps_path %>
+</p>
 
-    <div>
-      
-      <h3>Monthly</h3>
-      <%=  f.label :insurance %> <br>
-      <%=  f.text_field :insurance %> <br>
+<p>
+<%= link_to "Update Expenses", edit_carexp_path(current_user)%>
+</p>
 
-      <%=  f.label :payment %> <br>
-      <%=  f.text_field :payment %> <br>
-
-      <h3>Yearly</h3>
-      <%=  f.label :gas %> <br>
-      <%=  f.text_field :gas %> <br>
-
-      <%=  f.label :maintenance %> <br>
-      <%=  f.text_field :maintenance %> <br>
-
-      <%=  f.label :taxes %> <br>
-      <%=  f.text_field :taxes %> <br>
-
-    </div>
-
-  <%= f.submit %>
-
-  <p>
-  <%= link_to "View Car Expenses", carexps_path %>
-  </p>
-
-  <p>
-  <%= link_to "Home", root_path %>
-  </p>
-
-<% end %>
+<p>
+<%= link_to "Home", root_path %>
+</p>

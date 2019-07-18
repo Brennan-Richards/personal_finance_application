@@ -11,11 +11,15 @@
 
   <body>
 
-    <h1 id="logo">Finance Tracker</h1>
+    <div class="container">
+      <%= render 'layouts/navbar' %>
+      
+      <h1 id="logo">Finance Tracker</h1>
 
-    <%= render 'layouts/alerts' %>
-    <%= render 'layouts/messages' %>
+      <%= render 'layouts/alerts' %>
+      <%= render 'layouts/messages' %>
 
-    <%= yield %>
+      <%= yield %>
+    </div>
   </body>
 </html>
