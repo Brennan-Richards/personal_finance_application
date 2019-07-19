@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  electricity: 1
+  heating: 1
+  phone: 1
+  cable: 1
+  internet: 1
+
+two:
+  electricity: 1
+  heating: 1
+  phone: 1
+  cable: 1
+  internet: 1

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_16_123735) do
+ActiveRecord::Schema.define(version: 2019_07_19_182028) do
 
   create_table "carexps", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 2019_07_16_123735) do
     t.datetime "updated_at", null: false
     t.decimal "monthlyfood", precision: 11, scale: 2
     t.integer "user_id"
+    t.integer "dinner"
     t.index ["user_id"], name: "index_foodexps_on_user_id"
   end
 
@@ -37,12 +38,20 @@ ActiveRecord::Schema.define(version: 2019_07_16_123735) do
     t.datetime "updated_at", null: false
     t.decimal "mortgage", precision: 11, scale: 2
     t.decimal "propertytax", precision: 11, scale: 2
-    t.decimal "electricity", precision: 11, scale: 2
-    t.decimal "heating", precision: 11, scale: 2
-    t.decimal "water", precision: 11, scale: 2
-    t.decimal "entertainment", precision: 11, scale: 2
     t.integer "user_id"
+    t.integer "firetax"
+    t.integer "homeinsurance"
     t.index ["user_id"], name: "index_housingexps_on_user_id"
+  end
+
+  create_table "miscexps", force: :cascade do |t|
+    t.integer "healthinsurance"
+    t.integer "entertainment"
+    t.integer "other"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_miscexps_on_user_id"
   end
 
   create_table "specs", force: :cascade do |t|
@@ -80,13 +89,30 @@ ActiveRecord::Schema.define(version: 2019_07_16_123735) do
     t.integer "foodexp_id"
     t.integer "tax_id"
     t.integer "spec_id"
+    t.integer "utility_id"
+    t.integer "miscexp_id"
     t.index ["carexp_id"], name: "index_users_on_carexp_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["foodexp_id"], name: "index_users_on_foodexp_id"
     t.index ["housingexp_id"], name: "index_users_on_housingexp_id"
+    t.index ["miscexp_id"], name: "index_users_on_miscexp_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["spec_id"], name: "index_users_on_spec_id"
     t.index ["tax_id"], name: "index_users_on_tax_id"
+    t.index ["utility_id"], name: "index_users_on_utility_id"
+  end
+
+  create_table "utilities", force: :cascade do |t|
+    t.integer "electricity"
+    t.integer "heating"
+    t.integer "phone"
+    t.integer "cable"
+    t.integer "internet"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "water"
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_utilities_on_user_id"
   end
 
 end

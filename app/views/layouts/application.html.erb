@@ -1,25 +1,20 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Financial App</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<head>
+  <title>Myapp</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<div class="container">
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+  <%= render 'layouts/navbar' %>
+  <%= yield %>
 
-  <body>
+</div>
 
-    <div class="container">
-      <% if current_user %>
-      <%= render 'layouts/navbar' %>
-      <% end %>
 
-      <%= render 'shared/devisealerts' %>
 
-      <%= yield %>
-    </div>
-
-  </body>
+</body>
 </html>

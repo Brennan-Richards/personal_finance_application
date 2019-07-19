@@ -1,0 +1,88 @@
+<div class="variables">
+  <% if !(@user.utility.nil?) %>
+    <% electricity = @user.utility.electricity %>
+    <% heating = @user.utility.heating %>
+    <% phone = @user.utility.phone %>
+    <% cable = @user.utility.cable%>
+    <% internet = @user.utility.internet %>
+    <% water = @user.utility.water %>
+    <%= utilitytotal = electricity + heating + phone + cable + internet + water %>
+  <% end %>
+</div>
+
+<h2 class="title">Your utility expense report: </h2>
+
+<table class="table">
+<tr>
+  <th></th>
+  <th>Daily</th>
+  <th>Weekly</th>
+  <th>Biweekly</th>
+  <th>Monthly</th>
+  <th>Yearly</th>
+</tr>
+
+<tr id="electricity">
+  <td>Electricity</td>
+  <td>$<%= (electricity / 365.00).round(2) %></td>
+  <td>$<%= (electricity / 52.00).round(2) %></td>
+  <td>$<%= (electricity / 26.00).round(2) %></td>
+  <td>$<%= (electricity / 12.00).round(2) %></td>
+  <td>$<%= electricity %></td>
+</tr>
+
+<tr id="heating">
+  <td>Heating</td>
+  <td>$<%= (heating / 365).round(2) %></td>
+  <td>$<%= (heating / 52).round(2) %></td>
+  <td>$<%= (heating / 26).round(2) %></td>
+  <td>$<%= (heating / 12).round(2) %></td>
+  <td>$<%= (heating).round(2) %> </td>
+</tr>
+
+<tr id="phone">
+  <td>Phone</td>
+  <td>$<%= (phone / 365).round(2) %></td>
+  <td>$<%= (phone / 52).round(2) %></td>
+  <td>$<%= (phone / 26).round(2) %></td>
+  <td>$<%= (phone / 12).round(2) %></td>
+  <td>$<%= (phone).round(2) %> </td>
+</tr>
+
+<tr id="cable">
+  <td>Cable</td>
+  <td>$<%= (cable / 365).round(2) %></td>
+  <td>$<%= (cable / 52).round(2) %></td>
+  <td>$<%= (cable / 26).round(2) %></td>
+  <td>$<%= (cable / 12).round(2) %></td>
+  <td>$<%= (cable).round(2) %> </td>
+</tr>
+
+<tr id="internet">
+  <td>Internet</td>
+  <td>$<%= (internet / 365).round(2) %></td>
+  <td>$<%= (internet / 52).round(2) %></td>
+  <td>$<%= (internet / 26).round(2) %></td>
+  <td>$<%= (internet / 12).round(2) %></td>
+  <td>$<%= (internet).round(2) %> </td>
+</tr>
+
+<tr id="water">
+  <td>Water</td>
+  <td>$<%= (water / 365).round(2) %></td>
+  <td>$<%= (water / 52).round(2) %></td>
+  <td>$<%= (water / 26).round(2) %></td>
+  <td>$<%= (water / 12).round(2) %></td>
+  <td>$<%= (water).round(2) %> </td>
+</tr>
+
+<tr id="utility_totals">
+  <td class="index_total">Total Utility Expenses</td>
+  <td>$<%= (utilitytotal / 365).round(2) %></td>
+  <td>$<%= (utilitytotal / 52).round(2) %></td>
+  <td>$<%= (utilitytotal / 26).round(2) %></td>
+  <td>$<%= (utilitytotal / 12).round(2) %></td>
+  <td>$<%= utilitytotal.round(2) %></td>
+</tr>
+
+</table>

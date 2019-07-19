@@ -30,10 +30,7 @@
 
       <% else %>
 
-        <% housingtotal = ((@user.housingexp.mortgage) +
-        (@user.housingexp.electricity) + (@user.housingexp.water) +
-        (@user.housingexp.propertytax) + (@user.housingexp.heating) +
-        (@user.housingexp.entertainment)) %>
+        <% housingtotal = @user.housingexp.homeinsurance + @user.housingexp.firetax + @user.housingexp.propertytax + @user.housingexp.mortgage %>
         <% totalexpenses += housingtotal %>
 
         <td><%= link_to "Housing", housingexps_path %></td>
@@ -85,7 +82,7 @@
 
       <% else %>
 
-        <% foodtotal = (12 * (@user.foodexp.monthlyfood)) %>
+        <% foodtotal = (12 * (@user.foodexp.monthlyfood)) + (12 * (@user.foodexp.dinner)) %>
         <% totalexpenses += foodtotal %>
 
         <td><%= link_to "Food", foodexps_path %></td>
@@ -94,6 +91,31 @@
         <td>$<%= (foodtotal / 26).round(2) %></td>
         <td>$<%= (foodtotal / 12).round(2) %></td>
         <td>$<%= (foodtotal).round(2) %></td>
+
+      <% end %>
+    </tr>
+
+    <tr id="miscellaneous">
+      <% if @user.miscexp.nil? %>
+
+        <td>Miscellaneous</td>
+        <td>Miscellaneous expenses not added. <%= link_to 'Add Expenses', new_miscexp_path %></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+
+      <% else %>
+
+        <% misctotal = (@user.miscexp.healthinsurance) + (@user.miscexp.entertainment) + (@user.miscexp.other) %>
+        <% totalexpenses += misctotal %>
+
+        <td><%= link_to "Miscellaneous", miscexps_path %></td>
+        <td>$<%= (misctotal / 365).round(2) %></td>
+        <td>$<%= (misctotal / 52).round(2) %></td>
+        <td>$<%= (misctotal / 26).round(2) %></td>
+        <td>$<%= (misctotal / 12).round(2) %></td>
+        <td>$<%= (misctotal).round(2) %></td>
 
       <% end %>
     </tr>
@@ -111,7 +133,7 @@
       <% elsif @user.spec.nil? %>
 
         <td>Taxes</td>
-        <td>Salary needed to calculate taxes. <%= link_to 'Add Salary', new_spec_path %></td>
+        <td>Input salary to calculate taxes. <%= link_to 'Add Salary', new_spec_path %></td>
         <td></td>
         <td></td>
         <td></td>
@@ -128,6 +150,32 @@
         <td>$<%= (taxtotal / 26).round(2) %></td>
         <td>$<%= (taxtotal / 12).round(2) %></td>
         <td>$<%= (taxtotal).round(2) %></td>
+
+      <% end %>
+    </tr>
+
+    <tr id="utility">
+      <% if @user.utility.nil? %>
+
+        <td>Utility</td>
+        <td>Utility expenses not added. <%= link_to 'Add Expenses', new_utility_path %></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+
+      <% else %>
+
+        <% utilitytotal = (@user.utility.electricity) + (@user.utility.heating) + (@user.utility.phone)
+        (@user.utility.cable) + (@user.utility.internet) + (@user.utility.water)%>
+        <% totalexpenses += utilitytotal %>
+
+        <td><%= link_to "Miscellaneous", utilities_path %></td>
+        <td>$<%= (utilitytotal / 365).round(2) %></td>
+        <td>$<%= (utilitytotal / 52).round(2) %></td>
+        <td>$<%= (utilitytotal / 26).round(2) %></td>
+        <td>$<%= (utilitytotal / 12).round(2) %></td>
+        <td>$<%= (utilitytotal).round(2) %></td>
 
       <% end %>
     </tr>

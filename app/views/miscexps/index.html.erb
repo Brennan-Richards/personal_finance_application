@@ -1,0 +1,58 @@
+<div class="variables">
+  <% if !(@user.miscexp.nil?) %>
+    <% healthinsurance = @user.miscexp.healthinsurance %>
+    <% entertainment = @user.miscexp.entertainment %>
+    <% other = @user.miscexp.other %>
+    <% misctotal = healthinsurance + entertainment + other %>
+  <% end %>
+</div>
+
+<h2 class="title">Your miscellaneous expense report: </h2>
+
+<table class="table">
+<tr>
+  <th></th>
+  <th>Daily</th>
+  <th>Weekly</th>
+  <th>Biweekly</th>
+  <th>Monthly</th>
+  <th>Yearly</th>
+</tr>
+
+<tr id="healthinsurance">
+  <td>Health Insurance</td>
+  <td>$<%= (healthinsurance / 365.00).round(2) %></td>
+  <td>$<%= (healthinsurance / 52.00).round(2) %></td>
+  <td>$<%= (healthinsurance / 26.00).round(2) %></td>
+  <td>$<%= (healthinsurance / 12.00).round(2) %></td>
+  <td>$<%= healthinsurance %></td>
+</tr>
+
+<tr id="entertainment">
+  <td>Entertainment</td>
+  <td>$<%= (entertainment / 365).round(2) %></td>
+  <td>$<%= (entertainment / 52).round(2) %></td>
+  <td>$<%= (entertainment / 26).round(2) %></td>
+  <td>$<%= (entertainment / 12).round(2) %></td>
+  <td>$<%= (entertainment).round(2) %> </td>
+</tr>
+
+<tr id="other">
+  <td>Other</td>
+  <td>$<%= (other / 365).round(2) %></td>
+  <td>$<%= (other / 52).round(2) %></td>
+  <td>$<%= (other / 26).round(2) %></td>
+  <td>$<%= (other / 12).round(2) %></td>
+  <td>$<%= (other).round(2) %> </td>
+</tr>
+
+<tr id="misc_totals">
+  <td class="index_total">Total Miscellaneous Expenses</td>
+  <td>$<%= (misctotal / 365).round(2) %></td>
+  <td>$<%= (misctotal / 52).round(2) %></td>
+  <td>$<%= (misctotal / 26).round(2) %></td>
+  <td>$<%= (misctotal / 12).round(2) %></td>
+  <td>$<%= misctotal.round(2) %></td>
+</tr>
+
+</table>

@@ -1,6 +1,7 @@
 <% if !(@user.foodexp.nil?) %>
 <div class="variables">
   <%= monthlyfood = 12 * (@user.foodexp.monthlyfood) %>
+  <%= dinner = 12 * (@user.foodexp.dinner) %>
 </div>
 <% end %>
 
@@ -23,6 +24,14 @@
   <td>$<%= (monthlyfood / 26).round(2) %></td>
   <td>$<%= (monthlyfood / 12).round(2) %></td>
   <td>$<%= monthlyfood.round(2) %></td>
+</tr>
+
+<tr id="dinner">
+  <td>$<%= (dinner / 365).round(2) %></td>
+  <td>$<%= (dinner / 52).round(2) %></td>
+  <td>$<%= (dinner / 26).round(2) %></td>
+  <td>$<%= (dinner / 12).round(2) %></td>
+  <td>$<%= dinner.round(2) %></td>
 </tr>
 
 </table>

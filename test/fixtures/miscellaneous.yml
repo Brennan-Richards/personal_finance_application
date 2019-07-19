@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  healthinsurance: 1
+  entertainment: 1
+  other: 1
+
+two:
+  healthinsurance: 1
+  entertainment: 1
+  other: 1
