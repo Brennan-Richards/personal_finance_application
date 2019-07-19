@@ -1,6 +1,4 @@
 class UtilitiesController < ApplicationController
-  class utilitiesController < ApplicationController
-    class utilitiesController < ApplicationController
 
       def index
         @user = current_user
@@ -15,11 +13,11 @@ class UtilitiesController < ApplicationController
       end
 
       def new
-        @utility = utility.new
+        @utility = Utility.new
       end
 
       def create
-        @utility = utility.new(utility_params)
+        @utility = Utility.new(utility_params)
         @utility.user = current_user
 
         if @utility.save
@@ -67,7 +65,3 @@ class UtilitiesController < ApplicationController
         params.require(:utility).permit(:electricity, :heating, :phone, :cable, :internet, :water)
       end
     end
-
-  end
-
-end
