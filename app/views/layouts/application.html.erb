@@ -8,8 +8,9 @@
 </head>
 <body>
 <div class="container">
-
-  <%= render 'layouts/navbar' %>
+  <% if current_user %>
+    <%= render 'layouts/navbar' %>
+  <% end  %>
   <%= yield %>
 
 </div>
