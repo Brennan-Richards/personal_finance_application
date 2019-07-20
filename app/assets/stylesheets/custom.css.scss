@@ -1,3 +1,36 @@
+#modulepicker {
+
+  margin-top: 20px;
+
+}
+
+#master {
+
+  margin-top: 25px;
+  margin-bottom: 30px;
+  text-align: center;
+  text-shadow: 2px 2px lightblue;
+  font-size: 40px;
+
+}
+
+#logo {
+
+  text-transform: bold;
+  font-size: 50px;
+  margin-top: 20px;
+
+}
+
+#enter {
+
+  margin: 10px;
+  height: 70px;
+  text-align: center;
+  size: 40px;
+
+}
+
 .variables {
   display: none;
 }
@@ -5,30 +38,7 @@
 table {
 
   font-size: 20px;
-
-}
-
-.errors {
-
-  margin: 5px;
-
-}
-
-.form{
-
-  margin: 40px;
-
-}
-
-.icon {
-
-  width: 100px;
-
-}
-
-.btn {
-
-  margin: 10px;
+  font-family: serif;
 
 }
 
@@ -50,29 +60,9 @@ table {
 
 }
 
-#logo {
-  text-align: center;
-  font-size: 40px;
-  margin: 30px;
-  text-transform: capitalize;
-
-}
-
-#deviselinks {
-
-  margin: 7px;
-
-}
-
 .title {
   text-align: center;
   color: #AEAEAE;
   margin-bottom: 50px;
-
-}
-
-#account {
-
-  display: inline;
 
 }
