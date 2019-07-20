@@ -59,7 +59,7 @@ class TaxesController < ApplicationController
 
 private
   def tax_params
-    params.require(:tax).permit(:salary, :fincome, :sincome)
+    params.require(:tax).permit(:fincome, :sincome)
   end
 
 end

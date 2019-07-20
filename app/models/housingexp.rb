@@ -9,19 +9,12 @@ class Housingexp < ApplicationRecord
             numericality: { only_integer: true },
             numericality: { greater_than_or_equal_to: 0 }
 
-  validates :electricity, presence: true,
+  validates :firetax, presence: true,
             numericality: { only_integer: true },
             numericality: { greater_than_or_equal_to: 0 }
 
-  validates :heating, presence: true,
+  validates :firetax, presence: true,
             numericality: { only_integer: true },
             numericality: { greater_than_or_equal_to: 0 }
 
-  validates :water, presence: true,
-            numericality: { only_integer: true },
-            numericality: { greater_than_or_equal_to: 0 }
-
-  validates :entertainment, presence: true,
-            numericality: { only_integer: true },
-            numericality: { greater_than_or_equal_to: 0 }
 end

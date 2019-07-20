@@ -49,7 +49,7 @@ class SpecsController < ApplicationController
 
   private
     def spec_params
-      params.require(:spec).permit(:salary, :payperiod)
+      params.require(:spec).permit(:salary)
     end
 
 end

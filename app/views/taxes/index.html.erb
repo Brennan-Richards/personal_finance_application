@@ -2,9 +2,9 @@
   <% sincome = @user.tax.sincome  %>
   <% fincome = @user.tax.fincome %>
   <% if !(@user.spec.nil?)%>
-   <% salary = @user.spec.salary %>
-  <% end  %>
+  <% salary = @user.spec.salary %>
   <% total = fincome + sincome + (salary * 0.062)  + (salary * 0.0145) + (salary * 0.011)  %>
+  <% end  %>
 </div>
 
 <h2 class="title">Overview of your income taxes. </h2>

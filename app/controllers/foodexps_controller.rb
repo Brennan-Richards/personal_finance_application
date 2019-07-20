@@ -60,7 +60,7 @@ class FoodexpsController < ApplicationController
   private
 
   def foodexp_params
-    params.require(:foodexp).permit(:monthlyfood)
+    params.require(:foodexp).permit(:monthlyfood, :dinner)
   end
 
 end
