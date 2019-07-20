@@ -1,12 +1,15 @@
-  <h1 id="logo">Expense Tracker</h1>
+<%= render 'shared/cards' %>
+
+<div class="enter align-middle">
+  <div class="row">
+    <div class="col-sm-4 offset-sm-4 enter">
+      <%= link_to "Sign up", new_user_registration_path, class: "btn btn-lg btn-success btn-block"%>
+    </div>
+  </div>
 
   <div class="row">
-    <div class="col-sm-4 offset-sm-4">
-      <%= link_to "Sign up", new_user_registration_path, class: "btn btn-lg btn-success btn-block", id:"enter" %>
+    <div class="col-sm-4 offset-sm-4 enter ">
+      <%= link_to "Sign in", new_user_session_path, class: "btn btn-lg btn-primary btn-block"%>
     </div>
   </div>
-  <div class="row">
-    <div class="col-sm-4 offset-sm-4">
-      <%= link_to "Sign in", new_user_session_path, class: "btn btn-lg btn-primary btn-block", id: "enter" %>
-    </div>
-  </div>
+</div>
